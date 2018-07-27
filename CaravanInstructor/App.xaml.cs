@@ -1,6 +1,10 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Threading;
 using CaravanInstructor.Views.Splash;
 
@@ -29,7 +33,7 @@ namespace CaravanInstructor
             base.OnStartup(e);
 
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(4);
+            timer.Interval = TimeSpan.FromSeconds(CaravanInstructor.Properties.Settings.Default.TimerSplash);
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
@@ -69,7 +73,7 @@ namespace CaravanInstructor
         /// <param name="p4"></param>
         /// <param name="p5"></param>
         /// <param name="methodBase"></param>
-        private static void LogFile(Func<string> func, int p2, string p3, string p4, string p5, System.Reflection.MethodBase methodBase)
+        private static void LogFile(Func<string> i_func, int i_p2, string i_p3, string i_p4, string i_p5, System.Reflection.MethodBase i_methodBase)
         {
             StreamWriter log;
 
@@ -84,12 +88,12 @@ namespace CaravanInstructor
 
             // Write to the file:
             log.WriteLine("Data Time:" + DateTime.Now);
-            log.WriteLine("Exception Data:" + func);
-            log.WriteLine("HResult:" + p2);
-            log.WriteLine("Message:" + p3);
-            log.WriteLine("Source:" + p4);
-            log.WriteLine("StackTrace:" + p5);
-            log.WriteLine("Form Name:" + methodBase.ToString());
+            log.WriteLine("Exception Data:" + i_func);
+            log.WriteLine("HResult:" + i_p2);
+            log.WriteLine("Message:" + i_p3);
+            log.WriteLine("Source:" + i_p4);
+            log.WriteLine("StackTrace:" + i_p5);
+            log.WriteLine("Form Name:" + i_methodBase.ToString());
             log.Close();
         }
     }
