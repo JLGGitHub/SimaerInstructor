@@ -34,8 +34,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label x:Name="labelProduct"  Grid.Row="0" Grid.Column="0" Content="Producto Licenciado A:" HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
-            <Label x:Name="labelClient"  Grid.Row="1" Grid.Column="0" Content="F.A.C. - J.E.A." HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            <telerik:Label x:Name="_labelProduct_lbl"  Grid.Row="0" Grid.Column="0" Content="Producto Licenciado A:" HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            <telerik:Label x:Name="_labelClient_lbl"  Grid.Row="1" Grid.Column="0" Content="F.A.C. - J.E.A." HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
         </Grid>
 
         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
@@ -43,8 +43,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label x:Name="labelCodaltec"  Grid.Row="0" Grid.Column="0" Content="© 2018 CODALTEC" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
-            <Label x:Name="labelReservedRights"  Grid.Row="1" Grid.Column="0" Content="Todos los derechos reservados" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            <telerik:Label x:Name="_labelCodaltec_lbl"  Grid.Row="0" Grid.Column="0" Content="© 2018 CODALTEC" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            <telerik:Label x:Name="_labelReservedRights_lbl"  Grid.Row="1" Grid.Column="0" Content="Todos los derechos reservados" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
         </Grid>
 
     </Grid>

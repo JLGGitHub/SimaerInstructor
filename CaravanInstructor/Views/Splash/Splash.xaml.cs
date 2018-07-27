@@ -20,10 +20,10 @@ namespace CaravanInstructor.Views.Splash
         private void SetInitConfigWindow()
         {
             int sizeFontSplash = Properties.Settings.Default.FontSizeSplash;
-            labelProduct.FontSize = sizeFontSplash;
-            labelClient.FontSize = sizeFontSplash;
-            labelCodaltec.FontSize = sizeFontSplash;
-            labelReservedRights.FontSize = sizeFontSplash;
+            _labelProduct_lbl.FontSize = sizeFontSplash;
+            _labelClient_lbl.FontSize = sizeFontSplash;
+            _labelCodaltec_lbl.FontSize = sizeFontSplash;
+            _labelReservedRights_lbl.FontSize = sizeFontSplash;
         }
     }
 }
