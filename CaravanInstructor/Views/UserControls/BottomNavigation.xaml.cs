@@ -16,7 +16,7 @@ namespace CaravanInstructor.Views.UserControls
         #endregion
 
         #region Getters y Setters
-        public WindowsType parentWindow_wty
+        public WindowsType ParentWindow_wty
         {
             get
             {
@@ -55,6 +55,7 @@ namespace CaravanInstructor.Views.UserControls
 
         /// <summary>
         /// Description: Esconde los botones de la barra inferior de navegación de acuerdo a las entradas
+        /// 0 Visible, 1 Hidden, 2 Collapsed
         /// </summary>
         /// <param name="i_buttonBack"></param>
         /// <param name="i_buttonPlay"></param>

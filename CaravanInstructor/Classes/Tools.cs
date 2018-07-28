@@ -12,6 +12,7 @@ namespace CaravanInstructor.Classes
     public enum WindowsType
     {
         MainWindow,
+        Scenario,
         None
     }
 
