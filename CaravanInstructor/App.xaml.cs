@@ -31,6 +31,7 @@ namespace CaravanInstructor
             splash = new Splash();
             splash.Show();
             main = new MainWindow();
+            main.InitData();
 
             base.OnStartup(e);
 

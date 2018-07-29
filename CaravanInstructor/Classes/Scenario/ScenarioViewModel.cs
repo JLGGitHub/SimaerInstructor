@@ -12,7 +12,6 @@ namespace CaravanInstructor.Classes.Scenario
     {
         #region Variables
         private ObservableCollection<Scenario> scenarios;
-        private object selectedItem;
         #endregion
 
         #region Getters y setters
@@ -22,22 +21,10 @@ namespace CaravanInstructor.Classes.Scenario
             {
                 if (this.scenarios == null)
                 {
-                    this.scenarios = Scenario.GetScenarios();
+                    this.scenarios = MainWindow.GetScenarios();
                 }
 
                 return this.scenarios;
-            }
-        }
-        
-        public object SelectedItem
-        {
-            get { return this.selectedItem; }
-            set
-            {
-                if (value != this.selectedItem)
-                {
-                    this.selectedItem = value;
-                }
             }
         }
         #endregion

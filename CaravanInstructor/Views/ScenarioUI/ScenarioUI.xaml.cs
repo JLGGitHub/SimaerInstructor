@@ -78,5 +78,10 @@ namespace CaravanInstructor.Views.ScenarioUI
             }
         }
         #endregion
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _parent_win.Show();
+        }
     }
 }

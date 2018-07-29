@@ -9,7 +9,7 @@
         xmlns:UserControls="clr-namespace:CaravanInstructor.Views.UserControls"
         xmlns:ViewModel="clr-namespace:CaravanInstructor.Classes.Scenario"
         Title="Módulo instructor SIMAER CARAVAN 208 - CODALTEC" Height="1080" Width="1920" WindowState="Maximized" WindowStartupLocation="CenterScreen" SizeChanged="ChangedEvent"
-        WindowStyle="None" BorderBrush="Black" BorderThickness="1">
+        WindowStyle="None" BorderBrush="Black" BorderThickness="1" Closing="Window_Closing">
 
     <Window.Resources>
         <ViewModel:ScenarioViewModel x:Key="ScenarioViewModel"/>
@@ -41,10 +41,10 @@
                     <Image x:Name="_iconWindow_img" Height="100" Width="100"/>
                     <telerik:Label x:Name="_textWindow_lbl" Content="SELECT SCENARIO" FontSize="35" FontFamily="Eurostile" Margin="10,0,0,0" FontWeight="Bold" />
                 </StackPanel>
-                <Grid Grid.Row="1" DataContext="{StaticResource ScenarioViewModel}">
+                <Grid Grid.Row="1" DataContext="{StaticResource ScenarioViewModel}" Margin="30,0,30,0">
                     <telerik:RadGridView x:Name="_scenarioGridView_rgv" AutoGenerateColumns="False" 
                                          ItemsSource="{Binding Scenarios}" RowIndicatorVisibility="Collapsed"
-                                         ShowGroupPanel="False" CanUserReorderColumns="False">
+                                         ShowGroupPanel="False" CanUserReorderColumns="False" FontSize="30" FontFamily="Eurostile">
                         <telerik:RadGridView.Columns>
                             <telerik:GridViewDataColumn Header="Scenario" DataMemberBinding="{Binding Name_str}" IsReadOnly="True" Width="55*"/>
                             <telerik:GridViewDataColumn Header="Take-Off/Landing" DataMemberBinding="{Binding NameRunWayTol_str}" IsReadOnly="True" Width="35*"/>
@@ -55,7 +55,7 @@
                 <Grid Grid.Row="2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0">
                         <telerik:Label Content="Select scenario and press finish" FontSize="30" FontFamily="Eurostile" Margin="0,0,10,0" Opacity="0.7"/>
-                        <telerik:RadButton x:Name="_finishButton_btn" FontSize="35" FontFamily="Eurostile" Height="50" Width="200" Content="Finish" Click="_finishButton_btn_Click"/>
+                        <telerik:RadButton x:Name="_finishButton_btn" FontSize="30" FontFamily="Eurostile" Height="50" Width="200" Content="Finish" Click="_finishButton_btn_Click"/>
                     </StackPanel>
                 </Grid>
             </Grid>
