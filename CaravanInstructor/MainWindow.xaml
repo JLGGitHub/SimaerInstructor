@@ -1,0 +1,50 @@
+﻿<Window x:Class="CaravanInstructor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:UserControls="clr-namespace:CaravanInstructor.Views.UserControls"
+        Title="Módulo instructor SIMAER CARAVAN 208 - CODALTEC" Height="1080" Width="1920" WindowState="Maximized" WindowStartupLocation="CenterScreen" SizeChanged="ChangedEvent"
+        BorderBrush="Black" BorderThickness="1">
+
+    <Grid>
+        <Grid.Background>
+                <ImageBrush ImageSource="Resources/Images/Backgrounds/background.png" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image x:Name="_iconWindow_img"  HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" Height="800">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadButton Height="300" Width="300" Background="{x:Null}" BorderThickness="0" Grid.Row="0" Grid.Column="0">
+                        <Image x:Name="_iconSelect_img"/>
+                    </telerik:RadButton>
+                    <telerik:RadButton Height="300" Width="300" Background="{x:Null}" BorderThickness="0" Grid.Row="0" Grid.Column="1">
+                        <Image x:Name="_iconScenario_img"/>
+                    </telerik:RadButton>
+                    <telerik:RadButton Height="300" Width="300" Background="{x:Null}" BorderThickness="0" Grid.Row="1" Grid.Column="0">
+                        <Image x:Name="_iconPlaying"/>
+                    </telerik:RadButton>
+                    <telerik:RadButton Height="300" Width="300" Background="{x:Null}" BorderThickness="0" Grid.Row="1" Grid.Column="1">
+                        <Image x:Name="_iconClose_img"/>
+                    </telerik:RadButton>
+                </Grid>
+            </Grid>
+        <Grid Grid.Row="1" Background="White" VerticalAlignment="Bottom">
+            <ContentControl>
+                <UserControls:BottomNavigation x:Name="_bottomNavigation_use">
+                </UserControls:BottomNavigation>
+            </ContentControl>
+        </Grid>
+    </Grid>
+</Window>   
