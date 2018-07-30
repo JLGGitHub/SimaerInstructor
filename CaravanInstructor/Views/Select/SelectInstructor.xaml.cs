@@ -41,17 +41,12 @@ namespace CaravanInstructor.Views.Select
             string iconsFullPath = Tools.GetIconsFullPath();
             _iconWindow_img.Source = new BitmapImage(new Uri(iconsFullPath + "pilot.png"));
 
-            _bottomNavigation_use.SetCollapsedButtons(2, 2, 2, 2, 2, 2, 2, 2, 0);
-            _bottomNavigation_use.ParentWindow_wty = WindowsType.Scenario;
-        }
+            string backgroundsFullPath = Tools.GetBackgroundsFullPath();
+            _imageWindow_img.ImageSource = new BitmapImage(new Uri(backgroundsFullPath + "ui.png"));
 
-        /// <summary>
-        /// Description: Cada vez que cambie el tamaño de la pantalla siempre la configura a FullHD
-        /// </summary>
-        private void ChangedEvent(object sender, SizeChangedEventArgs e)
-        {
-            this.Height = 1080.0;
-            this.Width = 1920.0;
+            _bottomNavigation_use.SetCollapsedButtons(0, 2, 2, 2, 2, 2, 2, 2, 0);
+            _bottomNavigation_use.ParentWindowType_wty = WindowsType.SelectInstructor;
+            _bottomNavigation_use.ParentWindow_win = this;
         }
 
         #region Eventos botones
@@ -85,6 +80,12 @@ namespace CaravanInstructor.Views.Select
             _parent_win.Show();
         }
 
+        public void BackButton()
+        {
+            _parent_win.Show();
+            this.Close();
+        }
+
         private void _newPilotButton_btn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -112,13 +113,15 @@ namespace CaravanInstructor.Views.Select
             Button button = cell.Content as Button;
             if (button == null)
             {
+                string iconsFullPath = Tools.GetIconsFullPath();
+
                 button = new Button
                 {
                     Width = 50,
                     Height = 50,
                     Content = new Image
                     {
-                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/delete.png")),
+                        Source = new BitmapImage(new Uri(iconsFullPath + "delete.png")),
                     },
                     Background = null
                 };
@@ -149,13 +152,15 @@ namespace CaravanInstructor.Views.Select
             Button button = cell.Content as Button;
             if (button == null)
             {
+                string iconsFullPath = Tools.GetIconsFullPath();
+
                 button = new Button
                 {
                     Width = 50,
                     Height = 50,
                     Content = new Image
                     {
-                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/edit.png")),
+                        Source = new BitmapImage(new Uri(iconsFullPath + "edit.png")),
                     },
                     Background = null
                 };

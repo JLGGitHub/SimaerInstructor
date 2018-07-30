@@ -36,7 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -162,14 +165,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Backgrounds\background.png" />
     <Resource Include="Resources\Images\Logos\codaltec.png" />
     <Resource Include="Resources\Images\Logos\fac.png" />
     <Resource Include="Resources\Images\Logos\simaer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Images\delete.png" />
-    <Resource Include="Resources\Images\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

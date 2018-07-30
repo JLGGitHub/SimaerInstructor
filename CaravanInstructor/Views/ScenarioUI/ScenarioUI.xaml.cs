@@ -40,17 +40,12 @@ namespace CaravanInstructor.Views.ScenarioUI
             string iconsFullPath = Tools.GetIconsFullPath();
             _iconWindow_img.Source = new BitmapImage(new Uri(iconsFullPath + "world.png"));
 
-            _bottomNavigation_use.SetCollapsedButtons(2, 2, 2, 2, 2, 2, 2, 2, 0);
-            _bottomNavigation_use.ParentWindow_wty = WindowsType.Scenario;
-        }
+            string backgroundsFullPath = Tools.GetBackgroundsFullPath();
+            _imageWindow_img.ImageSource = new BitmapImage(new Uri(backgroundsFullPath + "ui.png"));
 
-        /// <summary>
-        /// Description: Cada vez que cambie el tamaño de la pantalla siempre la configura a FullHD
-        /// </summary>
-        private void ChangedEvent(object sender, SizeChangedEventArgs e)
-        {
-            this.Height = 1080.0;
-            this.Width = 1920.0;
+            _bottomNavigation_use.SetCollapsedButtons(0, 2, 2, 2, 2, 2, 2, 2, 0);
+            _bottomNavigation_use.ParentWindowType_wty = WindowsType.Scenario;
+            _bottomNavigation_use.ParentWindow_win = this;
         }
 
         #region Eventos botones
@@ -82,6 +77,12 @@ namespace CaravanInstructor.Views.ScenarioUI
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _parent_win.Show();
+        }
+
+        public void BackButton()
+        {
+            _parent_win.Show();
+            this.Close();
         }
     }
 }

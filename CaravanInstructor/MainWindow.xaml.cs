@@ -51,8 +51,12 @@ namespace CaravanInstructor
             _iconPlay_img.Source = new BitmapImage(new Uri(iconsFullPath + "play.png"));
             _iconClose_img.Source = new BitmapImage(new Uri(iconsFullPath + "exit.png"));
 
+            string backgroundsFullPath = Tools.GetBackgroundsFullPath();
+            _imageWindow_img.ImageSource = new BitmapImage(new Uri(backgroundsFullPath + "home.png"));
+
             _bottomNavigation_use.SetCollapsedButtons(2, 2, 2, 2, 2, 2, 2, 2, 0);
-            _bottomNavigation_use.ParentWindow_wty = WindowsType.MainWindow;
+            _bottomNavigation_use.ParentWindowType_wty = WindowsType.MainWindow;
+            _bottomNavigation_use.ParentWindow_win = this;
         }
 
         internal void InitData()
@@ -265,15 +269,6 @@ namespace CaravanInstructor
             pilot = new Pilot(67806, "ngnv", "jhtejr");
             pilot.GradeID_gra = _grades_gra[2];
             _pilots_pil.Add(pilot);
-        }
-
-        /// <summary>
-        /// Description: Cada vez que cambie el tamaño de la pantalla siempre la configura a FullHD
-        /// </summary>
-        private void ChangedEvent(object sender, SizeChangedEventArgs e)
-        {
-            this.Height = 1080.0;
-            this.Width = 1920.0;
         }
 
         #region Eventos botones
