@@ -105,20 +105,26 @@ namespace CaravanInstructor.Views.Select
         }
     }
 
-    public class ButtonGridViewColumn : Telerik.Windows.Controls.GridViewColumn
+    public class ButtonDeleteGridViewColumn : Telerik.Windows.Controls.GridViewColumn
     {
         public override FrameworkElement CreateCellElement(GridViewCell cell, object dataItem)
         {
             Button button = cell.Content as Button;
             if (button == null)
             {
-                button = new Button();
+                button = new Button
+                {
+                    Width = 50,
+                    Height = 50,
+                    Content = new Image
+                    {
+                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/delete.png")),
+                    },
+                    Background = null
+                };
+
                 button.BorderThickness = new Thickness(0);
-                button.Background = null;
-                button.Content = "DEL/EDIT";
-
                 button.Click += Button_Click;
-
             }
 
             return button;
@@ -129,7 +135,44 @@ namespace CaravanInstructor.Views.Select
             if (sender is Button)
             {
                 Button btn = sender as Button;
-                if (btn.Tag != null)
+                if (btn != null)
+                {
+                }
+            }
+        }
+    }
+
+    public class ButtonEditGridViewColumn : Telerik.Windows.Controls.GridViewColumn
+    {
+        public override FrameworkElement CreateCellElement(GridViewCell cell, object dataItem)
+        {
+            Button button = cell.Content as Button;
+            if (button == null)
+            {
+                button = new Button
+                {
+                    Width = 50,
+                    Height = 50,
+                    Content = new Image
+                    {
+                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/edit.png")),
+                    },
+                    Background = null
+                };
+
+                button.BorderThickness = new Thickness(0);
+                button.Click += Button_Click;
+            }
+
+            return button;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btn = sender as Button;
+                if (btn != null)
                 {
                 }
             }

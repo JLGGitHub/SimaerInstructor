@@ -13,6 +13,21 @@
 
     <Window.Resources>
         <ViewModel:ScenarioViewModel x:Key="ScenarioViewModel"/>
+
+        <Style x:Key="HeaderStyle" 
+                            TargetType="telerik:GridViewHeaderCell"
+                            BasedOn="{StaticResource GridViewHeaderCellStyle}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontFamily" Value="Eurostile" />
+            <Setter Property="Height" Value="60" />
+        </Style>
+        <Style x:Key="CellsStyle"
+				           TargetType="telerik:GridViewCell"
+				           BasedOn="{StaticResource GridViewCellStyle}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontFamily" Value="Eurostile" />
+            <Setter Property="Height" Value="70" />
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -44,11 +59,11 @@
                 <Grid Grid.Row="1" DataContext="{StaticResource ScenarioViewModel}" Margin="30,0,30,0">
                     <telerik:RadGridView x:Name="_scenarioGridView_rgv" AutoGenerateColumns="False" 
                                          ItemsSource="{Binding Scenarios}" RowIndicatorVisibility="Collapsed"
-                                         ShowGroupPanel="False" CanUserReorderColumns="False" FontSize="30" FontFamily="Eurostile">
+                                         ShowGroupPanel="False" CanUserReorderColumns="False">
                         <telerik:RadGridView.Columns>
-                            <telerik:GridViewDataColumn Header="Scenario" DataMemberBinding="{Binding Name_str}" IsReadOnly="True" Width="55*"/>
-                            <telerik:GridViewDataColumn Header="Take-Off/Landing" DataMemberBinding="{Binding NameRunWayTol_str}" IsReadOnly="True" Width="35*"/>
-                            <telerik:GridViewDataColumn Header="Time" DataMemberBinding="{Binding NameTimeDay_str}" IsReadOnly="True" Width="10*"/>
+                            <telerik:GridViewDataColumn Header="Scenario" DataMemberBinding="{Binding Name_str}" IsReadOnly="True" Width="55*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                            <telerik:GridViewDataColumn Header="Take-Off/Landing" DataMemberBinding="{Binding NameRunWayTol_str}" IsReadOnly="True" Width="35*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                            <telerik:GridViewDataColumn Header="Time" DataMemberBinding="{Binding NameTimeDay_str}" IsReadOnly="True" Width="10*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
                         </telerik:RadGridView.Columns>
                     </telerik:RadGridView>
                 </Grid>

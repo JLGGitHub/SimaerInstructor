@@ -15,6 +15,21 @@
     <Window.Resources>
         <ViewModel:PilotViewModel x:Key="PilotViewModel"/>
 
+        <Style x:Key="HeaderStyle" 
+                            TargetType="telerik:GridViewHeaderCell"
+                            BasedOn="{StaticResource GridViewHeaderCellStyle}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontFamily" Value="Eurostile" />
+            <Setter Property="Height" Value="60" />
+        </Style>
+        <Style x:Key="CellsStyle"
+				           TargetType="telerik:GridViewCell"
+				           BasedOn="{StaticResource GridViewCellStyle}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontFamily" Value="Eurostile" />
+            <Setter Property="Height" Value="70" />
+        </Style>
+
         <Style TargetType="telerik:GridViewSearchPanel" BasedOn="{StaticResource GridViewSearchPanelStyle}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -123,17 +138,13 @@
                                          ShowGroupPanel="False" CanUserReorderColumns="False"
                                          ShowSearchPanel="True">
                         <telerik:RadGridView.Columns>
-                            <telerik:GridViewDataColumn Header="Militar Code" DataMemberBinding="{Binding MilitarCode_str}" IsReadOnly="True" Width="20*">
-                                <telerik:GridViewDataColumn.CellStyle>
-                                    <Style TargetType="{x:Type telerik:GridViewCell}">
-                                        <Setter Property="FontSize" Value="5px"/>
-                                    </Style>
-                                </telerik:GridViewDataColumn.CellStyle>
-                            </telerik:GridViewDataColumn>
-                            <telerik:GridViewDataColumn Header="Last Name" DataMemberBinding="{Binding LastName_str}" IsReadOnly="True" Width="30*"/>
-                            <telerik:GridViewDataColumn Header="First Name" DataMemberBinding="{Binding FirstName_str}" IsReadOnly="True" Width="30*"/>
-                            <telerik:GridViewDataColumn Header="Grade" DataMemberBinding="{Binding AbbreviationGrade_str}" IsReadOnly="True" Width="10*"/>
-                            <local:ButtonGridViewColumn Header="Action" IsReadOnly="True" Width="10*"/>
+                            <telerik:GridViewDataColumn Header="Militar Code" DataMemberBinding="{Binding MilitarCode_str}" IsReadOnly="True" Width="19*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                            <telerik:GridViewDataColumn Header="Last Name" DataMemberBinding="{Binding LastName_str}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                            <telerik:GridViewDataColumn Header="First Name" DataMemberBinding="{Binding FirstName_str}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                            <telerik:GridViewDataColumn Header="Grade" DataMemberBinding="{Binding AbbreviationGrade_str}" IsReadOnly="True" Width="9*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                            <local:ButtonEditGridViewColumn Header="Edit" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}" />
+                            <local:ButtonDeleteGridViewColumn  Header="Delete" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}" />
+
                         </telerik:RadGridView.Columns>
                     </telerik:RadGridView>
                 </Grid>
