@@ -1,0 +1,68 @@
+﻿<Window x:Class="CaravanInstructor.Views.Select.NewPilot"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaravanInstructor.Views.Select"
+        mc:Ignorable="d"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:ViewModel="clr-namespace:CaravanInstructor.Classes.Pilot"
+        Title="New Pilot" Height="400" Width="500" WindowStyle="None" BorderBrush="Black" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <ViewModel:GradeViewModel x:Key="GradeViewModel"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+
+            <Border x:Name="_borderTitle_bor" BorderThickness="1" BorderBrush="Black" Grid.Row="0" MouseDown="_borderTitle_bor_MouseDown">
+                <DockPanel x:Name="RootWindow">
+                    <DockPanel x:Name="TitleBar" DockPanel.Dock="Top">
+                        <Button Width="30" x:Name="CloseButton" Content="X" FontSize="20"
+                        Click="CloseButton_Click"                 
+                        DockPanel.Dock="Right" BorderThickness="0"/>
+                        <TextBlock Width="450" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Eurostila" FontSize="30" Margin="10,0,0,0">New Pilot</TextBlock>
+                    </DockPanel>
+                </DockPanel>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1">
+                <Grid Margin="20,0,20,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="6*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <telerik:Label Content="Militar Code" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Grid.Row="0" Grid.Column="0"/>
+                    <Grid Grid.Row="0" Grid.Column="1" >
+                        <telerik:RadWatermarkTextBox x:Name="_textMilitarCode_tex" Foreground="LightGray" WatermarkContent="Enter militar code here" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textMilitarCode_tex_TextChanged" PreviewKeyDown="_textMilitarCode_tex_PreviewKeyDown"/>
+                    </Grid>
+                    <telerik:Label Content="First Name" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Grid.Row="1" Grid.Column="0"/>
+                    <Grid Grid.Row="1" Grid.Column="1" >
+                        <telerik:RadWatermarkTextBox x:Name="_textFirstName_tex" Foreground="LightGray" WatermarkContent="Enter first name here" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textFirstName_tex_TextChanged"/>
+                    </Grid>
+                    <telerik:Label Content="Last Name" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Grid.Row="2" Grid.Column="0"/>
+                    <Grid Grid.Row="2" Grid.Column="1" >
+                        <telerik:RadWatermarkTextBox x:Name="_textLastName_tex" Foreground="LightGray" WatermarkContent="Enter last name here" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textLastName_tex_TextChanged"/>
+                    </Grid>
+                    <telerik:Label Content="Grade" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Grid.Row="3" Grid.Column="0"/>
+                    <Grid Grid.Row="3" Grid.Column="1" DataContext="{StaticResource GradeViewModel}">
+                        <telerik:RadComboBox x:Name="_comboGrade_com" FontFamily="Eurostile" FontSize="25" Height="40" ItemsSource="{Binding Grades}" DisplayMemberPath="Abbreviation_str" SelectedIndex="0"/>
+                    </Grid>
+                    <telerik:RadButton x:Name="_addButton_btn" Content="Add" FontFamily="Eurostile" FontSize="25" Height="40" Width="100" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" Click="_addButton_btn_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -74,11 +74,17 @@ namespace CaravanInstructor.Views.ScenarioUI
         }
         #endregion
 
+        /// <summary>
+        /// Description: Cuando se cierra la ventana muestra al padre
+        /// </summary>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _parent_win.Show();
         }
 
+        /// <summary>
+        /// Description: Muestra al padre y cierra la ventana
+        /// </summary>
         public void BackButton()
         {
             _parent_win.Show();

@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Pilot\Grade.cs" />
     <Compile Include="Classes\Pilot\Pilot.cs" />
+    <Compile Include="Classes\Pilot\GradeViewModel.cs" />
     <Compile Include="Classes\Pilot\PilotViewModel.cs" />
     <Compile Include="Classes\Scenario\RunwayTol.cs" />
     <Compile Include="Classes\Scenario\Scenario.cs" />
@@ -90,6 +91,9 @@
     <Compile Include="Classes\Tools.cs" />
     <Compile Include="Views\ScenarioUI\ScenarioUI.xaml.cs">
       <DependentUpon>ScenarioUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Select\NewPilot.xaml.cs">
+      <DependentUpon>NewPilot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Select\SelectInstructor.xaml.cs">
       <DependentUpon>SelectInstructor.xaml</DependentUpon>
@@ -115,6 +119,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ScenarioUI\ScenarioUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Select\NewPilot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

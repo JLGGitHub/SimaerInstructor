@@ -338,6 +338,11 @@ namespace CaravanInstructor
             return _pilots_pil;
         }
 
+        internal static ObservableCollection<Grade> GetGrades()
+        {
+            return _grades_gra;
+        }
+
         internal static void AddPilot(Pilot i_pilot)
         {
             _pilots_pil.Add(i_pilot);

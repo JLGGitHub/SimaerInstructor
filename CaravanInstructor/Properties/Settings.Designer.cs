@@ -52,7 +52,7 @@ namespace CaravanInstructor.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public double TimerSplash {
             get {
                 return ((double)(this["TimerSplash"]));

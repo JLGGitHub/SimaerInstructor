@@ -75,22 +75,35 @@ namespace CaravanInstructor.Views.Select
         }
         #endregion
 
+        /// <summary>
+        /// Description: Cuando se cierra la ventana muestra al padre
+        /// </summary>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _parent_win.Show();
         }
 
+        /// <summary>
+        /// Description: Muestra al padre y cierra la ventana
+        /// </summary>
         public void BackButton()
         {
             _parent_win.Show();
             this.Close();
         }
 
+        /// <summary>
+        /// Description: Muestra la ventana new pilot
+        /// </summary>
         private void _newPilotButton_btn_Click(object sender, RoutedEventArgs e)
         {
-            
+            NewPilot newPilot = new NewPilot();
+            newPilot.ShowDialog();
         }
 
+        /// <summary>
+        /// Description: Si no hay texto ingresado cambia el color de letra a gris claro, en caso contrario lo deja en negro
+        /// </summary>
         private void PART_SearchAsYouTypeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             RadWatermarkTextBox waterMarkTextBox = sender as RadWatermarkTextBox;
@@ -106,8 +119,14 @@ namespace CaravanInstructor.Views.Select
         }
     }
 
+    /// <summary>
+    /// Description: Botón delete en la tabla
+    /// </summary>
     public class ButtonDeleteGridViewColumn : Telerik.Windows.Controls.GridViewColumn
     {
+        /// <summary>
+        /// Description: Agrega el boton a la tabla
+        /// </summary>
         public override FrameworkElement CreateCellElement(GridViewCell cell, object dataItem)
         {
             Button button = cell.Content as Button;
@@ -132,7 +151,10 @@ namespace CaravanInstructor.Views.Select
 
             return button;
         }
-        
+
+        /// <summary>
+        /// Description: Valida eliminación del piloto
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button)
@@ -145,8 +167,14 @@ namespace CaravanInstructor.Views.Select
         }
     }
 
+    /// <summary>
+    /// Description: Botón edit en la tabla
+    /// </summary>
     public class ButtonEditGridViewColumn : Telerik.Windows.Controls.GridViewColumn
     {
+        /// <summary>
+        /// Description: Agrega el boton a la tabla
+        /// </summary>
         public override FrameworkElement CreateCellElement(GridViewCell cell, object dataItem)
         {
             Button button = cell.Content as Button;
@@ -172,6 +200,9 @@ namespace CaravanInstructor.Views.Select
             return button;
         }
 
+        /// <summary>
+        /// Description: Lanza ventana de edición de piloto
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button)
