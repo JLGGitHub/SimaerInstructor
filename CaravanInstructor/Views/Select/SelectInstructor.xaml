@@ -14,6 +14,10 @@
 
     <Window.Resources>
         <ViewModel:PilotViewModel x:Key="PilotViewModel"/>
+        <local:ButtonViewModel x:Key="ButtonViewModel"/>
+        <local:ConverterDelete x:Key="ConverterDelete"/>
+        <local:ConverterEdit x:Key="ConverterEdit"/>
+
 
         <Style x:Key="HeaderStyle" 
                             TargetType="telerik:GridViewHeaderCell"
@@ -143,8 +147,28 @@
                                 <telerik:GridViewDataColumn Header="Last Name" DataMemberBinding="{Binding LastName_str}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
                                 <telerik:GridViewDataColumn Header="First Name" DataMemberBinding="{Binding FirstName_str}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
                                 <telerik:GridViewDataColumn Header="Grade" DataMemberBinding="{Binding AbbreviationGrade_str}" IsReadOnly="True" Width="9*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
-                                <local:ButtonEditGridViewColumn Header="Edit" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}" />
-                                <local:ButtonDeleteGridViewColumn  Header="Delete" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}" />
+                                <telerik:GridViewDataColumn Header="Edit" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}">
+                                    <telerik:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <telerik:RadButton Command="{Binding EditCommand, Source={StaticResource ButtonViewModel}}"
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=telerik:GridViewRow}}"
+                                                               Background="{x:Null}" Height="50" Width="50" BorderThickness="0">
+                                                <Image Source="{Binding Converter={StaticResource ConverterEdit}}"/>
+                                            </telerik:RadButton>
+                                        </DataTemplate>
+                                    </telerik:GridViewColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="Delete" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}">
+                                    <telerik:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <telerik:RadButton Command="{Binding DeleteCommand, Source={StaticResource ButtonViewModel}}"
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=telerik:GridViewRow}}"
+                                                               Background="{x:Null}" Height="50" Width="50" BorderThickness="0">
+                                                <Image Source="{Binding Converter={StaticResource ConverterDelete}}"/>
+                                            </telerik:RadButton>
+                                        </DataTemplate>
+                                    </telerik:GridViewColumn.CellTemplate>
+                                </telerik:GridViewDataColumn>
 
                             </telerik:RadGridView.Columns>
                         </telerik:RadGridView>

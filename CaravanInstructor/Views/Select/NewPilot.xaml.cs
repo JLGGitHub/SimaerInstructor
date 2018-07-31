@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CaravanInstructor.Classes.Pilot;
 using Telerik.Windows.Controls;
 
 namespace CaravanInstructor.Views.Select
@@ -21,9 +22,19 @@ namespace CaravanInstructor.Views.Select
     /// </summary>
     public partial class NewPilot : Window
     {
-        public NewPilot()
+        private bool _idEdit_boo = false;
+
+        public NewPilot(bool i_isEdit = false)
         {
+            _idEdit_boo = i_isEdit;
+
             InitializeComponent();
+
+            if(_idEdit_boo == true)
+            {
+                _title_txt.Text = "Edit Pilot";
+                _addButton_btn.Content = "Edit";
+            }
         }
 
         /// <summary>
@@ -41,6 +52,22 @@ namespace CaravanInstructor.Views.Select
         {
             if ((_textMilitarCode_tex.Text != "") && (_textFirstName_tex.Text != "") && (_textLastName_tex.Text != ""))
             {
+                Pilot pilot = new Pilot();
+                pilot.MilitarCode_int = Convert.ToInt64(_textMilitarCode_tex.Text);
+                pilot.FirstName_str = _textFirstName_tex.Text;
+                pilot.LastName_str = _textLastName_tex.Text;
+                Grade grade = _comboGrade_com.SelectedItem as Grade;
+                pilot.GradeID_gra = grade;
+
+                if (_idEdit_boo == false)
+                {
+                    MainWindow.AddPilot(pilot);
+                }
+                else
+                {
+                    MainWindow.EditPilots(pilot);
+                }
+
                 this.Close();
             }
             else
@@ -120,17 +147,28 @@ namespace CaravanInstructor.Views.Select
         /// <summary>
         /// Description: Evento que se ejecuta antes de ingresar la tecla, valida si es un digito
         /// </summary>
-        private void _textMilitarCode_tex_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void _textMilitarCode_tex_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !IsKeyADigit(e.Key);
+            if (!IsIntNumeric(e.Text))
+            {
+                e.Handled = true;
+                return;
+            }
         }
 
         /// <summary>
         /// Description: Valida si la tecla es numérica
         /// </summary>
-        public static bool IsKeyADigit(Key key)
+        private bool IsIntNumeric(string _numberInput_str)
         {
-            return (key >= Key.D0 && key <= Key.D9) || (key >= Key.NumPad0 && key <= Key.NumPad9);
+            foreach (char c in _numberInput_str)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

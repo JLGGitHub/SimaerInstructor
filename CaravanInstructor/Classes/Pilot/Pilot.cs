@@ -10,14 +10,14 @@ namespace CaravanInstructor.Classes.Pilot
     class Pilot
     {
         #region Variables
-        private int _militarCode_int;
+        private long _militarCode_int;
         private string _firstName_str;
         private string _lastName_str;
         private Grade _gradeID_gra;
         #endregion
 
         #region Getters y Setters
-        public int MilitarCode_int
+        public long MilitarCode_int
         {
             get
             {

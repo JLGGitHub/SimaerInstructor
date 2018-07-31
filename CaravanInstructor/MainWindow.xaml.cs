@@ -347,5 +347,29 @@ namespace CaravanInstructor
         {
             _pilots_pil.Add(i_pilot);
         }
+
+        internal static void EditPilots(Pilot i_pilot)
+        {
+            Pilot queryPilot = _pilots_pil.Where<Pilot>(pilot => pilot.MilitarCode_int == i_pilot.MilitarCode_int).FirstOrDefault();
+
+            if(queryPilot != null)
+            {
+                _pilots_pil[(_pilots_pil.IndexOf(queryPilot))] = i_pilot;
+            }
+            else
+            {
+                AddPilot(i_pilot);
+            }
+        }
+
+        internal static void RemovePilot(Pilot i_pilot)
+        {
+            Pilot queryPilot = _pilots_pil.Where<Pilot>(pilot => pilot.MilitarCode_int == i_pilot.MilitarCode_int).FirstOrDefault();
+
+            if (queryPilot != null)
+            {
+                _pilots_pil.Remove(queryPilot);
+            }
+        }
     }
 }

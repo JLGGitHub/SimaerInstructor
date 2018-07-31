@@ -8,7 +8,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:ViewModel="clr-namespace:CaravanInstructor.Classes.Pilot"
         Title="New Pilot" Height="400" Width="500" WindowStyle="None" BorderBrush="Black" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    
+
     <Window.Resources>
         <ViewModel:GradeViewModel x:Key="GradeViewModel"/>
     </Window.Resources>
@@ -26,7 +26,7 @@
                         <Button Width="30" x:Name="CloseButton" Content="X" FontSize="20"
                         Click="CloseButton_Click"                 
                         DockPanel.Dock="Right" BorderThickness="0"/>
-                        <TextBlock Width="450" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Eurostila" FontSize="30" Margin="10,0,0,0">New Pilot</TextBlock>
+                        <TextBlock x:Name="_title_txt" Text="New Pilot" Width="450" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Eurostila" FontSize="30" Margin="10,0,0,0" />
                     </DockPanel>
                 </DockPanel>
             </Border>
@@ -46,7 +46,7 @@
                     </Grid.RowDefinitions>
                     <telerik:Label Content="Militar Code" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Grid.Row="0" Grid.Column="0"/>
                     <Grid Grid.Row="0" Grid.Column="1" >
-                        <telerik:RadWatermarkTextBox x:Name="_textMilitarCode_tex" Foreground="LightGray" WatermarkContent="Enter militar code here" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textMilitarCode_tex_TextChanged" PreviewKeyDown="_textMilitarCode_tex_PreviewKeyDown"/>
+                        <telerik:RadWatermarkTextBox x:Name="_textMilitarCode_tex" Foreground="LightGray" WatermarkContent="Enter militar code here" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textMilitarCode_tex_TextChanged" Background="White" PreviewTextInput="_textMilitarCode_tex_PreviewTextInput"/>
                     </Grid>
                     <telerik:Label Content="First Name" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Grid.Row="1" Grid.Column="0"/>
                     <Grid Grid.Row="1" Grid.Column="1" >

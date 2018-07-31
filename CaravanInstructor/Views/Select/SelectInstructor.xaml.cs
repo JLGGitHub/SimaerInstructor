@@ -56,7 +56,7 @@ namespace CaravanInstructor.Views.Select
         private void _nextButton_btn_Click(object sender, RoutedEventArgs e)
         {
             Pilot pilotSelected = _pilotGridView_rgv.SelectedItem as Pilot;
-            
+
             if (pilotSelected != null)
             {
                 _parent_win.Show();
@@ -108,7 +108,7 @@ namespace CaravanInstructor.Views.Select
         {
             RadWatermarkTextBox waterMarkTextBox = sender as RadWatermarkTextBox;
 
-            if(waterMarkTextBox.Text == "")
+            if (waterMarkTextBox.Text == "")
             {
                 waterMarkTextBox.Foreground = Brushes.LightGray;
             }
@@ -120,98 +120,121 @@ namespace CaravanInstructor.Views.Select
     }
 
     /// <summary>
-    /// Description: Botón delete en la tabla
+    /// Description: Clase para capturar los eventos de delete y edit
     /// </summary>
-    public class ButtonDeleteGridViewColumn : Telerik.Windows.Controls.GridViewColumn
+    public class ButtonViewModel
     {
-        /// <summary>
-        /// Description: Agrega el boton a la tabla
-        /// </summary>
-        public override FrameworkElement CreateCellElement(GridViewCell cell, object dataItem)
+        public ICommand DeleteCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+
+        private Pilot _pilotDelete_pit;
+
+        public ButtonViewModel()
         {
-            Button button = cell.Content as Button;
-            if (button == null)
-            {
-                string iconsFullPath = Tools.GetIconsFullPath();
-
-                button = new Button
-                {
-                    Width = 50,
-                    Height = 50,
-                    Content = new Image
-                    {
-                        Source = new BitmapImage(new Uri(iconsFullPath + "delete.png")),
-                    },
-                    Background = null
-                };
-
-                button.BorderThickness = new Thickness(0);
-                button.Click += Button_Click;
-            }
-
-            return button;
+            this.DeleteCommand = new DelegateCommand(OnDeleteCommandExecuted);
+            this.EditCommand = new DelegateCommand(OnEditCommandExecuted);
         }
 
         /// <summary>
-        /// Description: Valida eliminación del piloto
+        /// Description: Evento delete
         /// </summary>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OnDeleteCommandExecuted(object obj)
         {
-            if (sender is Button)
+            var row = obj as GridViewRow;
+            Pilot item = row.DataContext as Pilot;
+
+            if (item != null)
             {
-                Button btn = sender as Button;
-                if (btn != null)
+                _pilotDelete_pit = item;
+
+                RadWindow.Confirm(new DialogParameters
                 {
-                }
+                    Header = "Confirm",
+                    Content = "Are you sure you want to delete a pilot?",
+                    CancelButtonContent = "Cancel",
+                    OkButtonContent = "Ok",
+                    Closed = new EventHandler<WindowClosedEventArgs>(OnConfirmDelete),
+                    Owner = Application.Current.MainWindow
+                });
+            }
+        }
+
+        /// <summary>
+        /// Description: Valida la confirmación de borrar el piloto
+        /// </summary>
+        private void OnConfirmDelete(object sender, WindowClosedEventArgs e)
+        {
+            if (e.DialogResult == true)
+            {
+                MainWindow.RemovePilot(_pilotDelete_pit);
+            }
+        }
+
+        /// <summary>
+        /// Description: Evento edit
+        /// </summary>
+        private void OnEditCommandExecuted(object obj)
+        {
+            var row = obj as GridViewRow;
+            Pilot item = row.DataContext as Pilot;
+
+            if (item != null)
+            {
+                NewPilot newPilot = new NewPilot(true);
+                newPilot._textMilitarCode_tex.Text = item.MilitarCode_str;
+                newPilot._textFirstName_tex.Text = item.FirstName_str;
+                newPilot._textLastName_tex.Text = item.LastName_str;
+                newPilot._comboGrade_com.SelectedItem = item.GradeID_gra;
+                newPilot.ShowDialog();
             }
         }
     }
 
     /// <summary>
-    /// Description: Botón edit en la tabla
+    /// Description: Clase para enviar por binding el fondo del botón delete
     /// </summary>
-    public class ButtonEditGridViewColumn : Telerik.Windows.Controls.GridViewColumn
+    public class ConverterDelete : IValueConverter
     {
-        /// <summary>
-        /// Description: Agrega el boton a la tabla
-        /// </summary>
-        public override FrameworkElement CreateCellElement(GridViewCell cell, object dataItem)
-        {
-            Button button = cell.Content as Button;
-            if (button == null)
-            {
-                string iconsFullPath = Tools.GetIconsFullPath();
-
-                button = new Button
-                {
-                    Width = 50,
-                    Height = 50,
-                    Content = new Image
-                    {
-                        Source = new BitmapImage(new Uri(iconsFullPath + "edit.png")),
-                    },
-                    Background = null
-                };
-
-                button.BorderThickness = new Thickness(0);
-                button.Click += Button_Click;
-            }
-
-            return button;
-        }
+        #region IValueConverter Members
 
         /// <summary>
-        /// Description: Lanza ventana de edición de piloto
+        /// Description: Envía la imagen delete de acuerto a la configuración
         /// </summary>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (sender is Button)
-            {
-                Button btn = sender as Button;
-                if (btn != null)
-                {
-                }
-            }
+            string iconsFullPath = Tools.GetIconsFullPath();
+            return new BitmapImage(new Uri(iconsFullPath + "delete.png"));
         }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return Binding.DoNothing;
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// Description: Clase para enviar por binding el fondo del botón edit
+    /// </summary>
+    public class ConverterEdit : IValueConverter
+    {
+        #region IValueConverter Members
+
+        /// <summary>
+        /// Description: Envía la imagen edit de acuerto a la configuración
+        /// </summary>
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            string iconsFullPath = Tools.GetIconsFullPath();
+            return new BitmapImage(new Uri(iconsFullPath + "edit.png"));
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return Binding.DoNothing;
+        }
+
+        #endregion
     }
 }
