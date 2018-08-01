@@ -1,0 +1,267 @@
+﻿<Window x:Class="CaravanInstructor.Views.Setting.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaravanInstructor.Views.Setting"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:UserControls="clr-namespace:CaravanInstructor.Views.UserControls"
+        Title="Módulo instructor SIMAER CARAVAN 208 - CODALTEC" Height="1080" Width="1920" WindowState="Maximized" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" BorderBrush="Black" BorderThickness="1" Closing="Window_Closing">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="BorderBrushNormal1" Color="#FFABABAB" />
+        <LinearGradientBrush x:Key="BackgroundNormal1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" />
+            <GradientStop Color="White" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="ThumbBackgroundChecked1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Lime"/>
+            <GradientStop Color="#FF599962" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="BorderChecked" Color="#FF437824"/>
+
+        <LinearGradientBrush x:Key="ThumbBackground1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FFCFCFCF" Offset="0.5"/>
+            <GradientStop Color="#FFCFCFCF" Offset="0.5"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ThumbBackgroundMouseOver1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FFCFCFCF" Offset="0.50"/>
+            <GradientStop Color="#FFCFCFCF" Offset="0.50"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="ThumbBackgroundPressed1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FFCFCFCF" Offset="0.50"/>
+            <GradientStop Color="#FFCFCFCF" Offset="0.50"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="RadToggleButtonStyle_OB1" TargetType="telerik:RadToggleButton">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10 1"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundNormal1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushNormal1}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Width" Value="52"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerik:RadToggleButton">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition From="Unchecked" To="Checked">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Thumb">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="30">
+                                                        <EasingDoubleKeyFrame.EasingFunction>
+                                                            <QuadraticEase EasingMode="EaseInOut"/>
+                                                        </EasingDoubleKeyFrame.EasingFunction>
+                                                    </EasingDoubleKeyFrame>
+                                                </DoubleAnimationUsingKeyFrames>
+
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Content">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                        <VisualTransition From="Checked" To="UnChecked">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Thumb">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="30"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
+                                                        <EasingDoubleKeyFrame.EasingFunction>
+                                                            <QuadraticEase EasingMode="EaseInOut"/>
+                                                        </EasingDoubleKeyFrame.EasingFunction>
+                                                    </EasingDoubleKeyFrame>
+                                                </DoubleAnimationUsingKeyFrames>
+
+
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Content">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Thumb">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="30"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="30">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <QuadraticEase EasingMode="EaseInOut"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Content">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked">
+                                        <Storyboard>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid SnapsToDevicePixels="True">
+                                <Rectangle x:Name="Track" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="10" RadiusY="10"/>
+
+                                <Ellipse x:Name="Thumb" Fill="{StaticResource ThumbBackground1}" Width="22"
+                                         HorizontalAlignment="Left" StrokeThickness="1" 
+                                         Stroke="{TemplateBinding BorderBrush}"
+                                         RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <TranslateTransform X="0" Y="0" />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Grid>
+
+                            <ContentPresenter x:Name="Content"
+                                Margin="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                RecognizesAccessKey="True"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Thumb" Property="Fill" Value="{StaticResource ThumbBackgroundMouseOver1}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Thumb" Property="Fill" Value="{StaticResource ThumbBackgroundPressed1}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Content" Property="HorizontalAlignment" Value="Left" />
+                                <Setter TargetName="Track" Property="Stroke" Value="{StaticResource BorderChecked}" />
+                                <Setter TargetName="Track" Property="Fill" Value="{StaticResource ThumbBackgroundChecked1}" />
+                                <Setter TargetName="Thumb" Property="Fill" Value="{StaticResource ThumbBackgroundPressed1}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Height="1080" Width="1920">
+            <Grid.Background>
+                <ImageBrush x:Name="_imageWindow_img" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White" VerticalAlignment="Top">
+                <ContentControl>
+                    <UserControls:TopBar>
+                    </UserControls:TopBar>
+                </ContentControl>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
+                        <Image x:Name="_iconWindow_img" Height="100" Width="100"/>
+                        <telerik:Label x:Name="_textWindow_lbl" Content="SETTING" FontSize="35" FontFamily="Eurostile" Margin="10,0,0,0" FontWeight="Bold" />
+                    </StackPanel>
+                    <Border Grid.Row="1" Margin="30,25,30,30" BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45*" />
+                                <ColumnDefinition Width="55*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image x:Name="_imageNetwork_img" Height="500" Width="600"/>
+                            </Grid>
+                            <telerik:GroupBox Grid.Column="1" Margin="50" BorderThickness="1" BorderBrush="Black" Header="Connections" FontFamily="Eurostile" FontSize="30">
+                                <Grid Margin="20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="1.5*"/>
+                                    </Grid.RowDefinitions>
+                                    <telerik:Label Content="My Address" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="30" Grid.Row="0" Grid.Column="0"/>
+                                    <Grid Grid.Row="0" Grid.Column="1" >
+                                        <telerik:RadWatermarkTextBox IsEnabled="False" x:Name="_textMyAddress_tex" TextAlignment="Center" Foreground="Black" WatermarkContent="172.16.2.6" Text="172.16.2.6" FontStyle="Normal" FontFamily="Eurostile" FontSize="30" Height="50" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" Background="White"/>
+                                    </Grid>
+                                    <telerik:Label Content="Server Address" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="30" Grid.Row="1" Grid.Column="0"/>
+                                    <Grid Grid.Row="1" Grid.Column="1" >
+                                        <telerik:RadWatermarkTextBox x:Name="_textServerAddress_tex" TextAlignment="Center" Foreground="LightGray" WatermarkContent="172.16.2.2" FontStyle="Normal" FontFamily="Eurostile" FontSize="30" Height="50" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textServerAddress_tex_TextChanged" Background="White"/>
+                                    </Grid>
+                                    <telerik:Label Content="Server Port" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="30" Grid.Row="2" Grid.Column="0"/>
+                                    <Grid Grid.Row="2" Grid.Column="1" >
+                                        <telerik:RadWatermarkTextBox x:Name="_textServerPort_tex" TextAlignment="Center" Foreground="LightGray" WatermarkContent="5001" FontStyle="Normal" FontFamily="Eurostile" FontSize="30" Height="50" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}" TextChanged="_textServerPort_tex_TextChanged" PreviewTextInput="_textServerPort_tex_PreviewTextInput" Background="White"/>
+                                    </Grid>
+                                    <telerik:Label Content="Status" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="30" Grid.Row="3" Grid.Column="0"/>
+                                    <Grid Grid.Row="3" Grid.Column="1">
+                                        <telerik:RadToggleButton x:Name="_toggleStatus_btn" Style="{StaticResource RadToggleButtonStyle_OB1}" IsChecked="False" HorizontalAlignment="Left" Height="50" Width="50" IsEnabled="False">
+                                            <telerik:RadToggleButton.LayoutTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="2"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </telerik:RadToggleButton.LayoutTransform>
+                                        </telerik:RadToggleButton>
+                                    </Grid>
+                                    <Grid Grid.Row="5" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <telerik:RadButton x:Name="_defaultButton_btn" Content="Default" FontFamily="Eurostile" FontSize="30" Height="50" Width="150" HorizontalAlignment="Center" Grid.Column="0" Click="_defaultButton_btn_Click"/>
+                                        <telerik:RadButton x:Name="_connectButton_btn" Content="Connect" FontFamily="Eurostile" FontSize="30" Height="50" Width="150" HorizontalAlignment="Center" Grid.Column="1" Click="_connectButton_btn_Click"/>
+                                    </Grid>
+                                </Grid>
+                            </telerik:GroupBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2" Background="White" VerticalAlignment="Bottom">
+                <ContentControl>
+                    <UserControls:BottomNavigation x:Name="_bottomNavigation_use">
+                    </UserControls:BottomNavigation>
+                </ContentControl>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>

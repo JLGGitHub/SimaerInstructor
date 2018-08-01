@@ -199,6 +199,9 @@
     <Compile Include="Views\Select\SelectStudent.xaml.cs">
       <DependentUpon>SelectStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Setting\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Splash\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Select\SelectStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Setting\Setting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

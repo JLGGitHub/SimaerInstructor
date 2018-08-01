@@ -15,6 +15,7 @@ namespace CaravanInstructor.Classes
         SelectInstructor,
         SelectStudent,
         Scenario,
+        Setting,
         None
     }
 
@@ -38,6 +39,16 @@ namespace CaravanInstructor.Classes
             string backgroundsFolder = Properties.Settings.Default.BackgroundsFolder;
 
             return System.IO.Path.GetFullPath(backgroundsFolder);
+        }
+
+        /// <summary>
+        /// Description: Retorna la dirección donde se encuentran las imágenes de acuerdo a la configuración
+        /// </summary>
+        public static string GetImagesFullPath()
+        {
+            string imagesFolder = Properties.Settings.Default.ImagesFolder;
+
+            return System.IO.Path.GetFullPath(imagesFolder);
         }
     }
 }

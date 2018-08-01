@@ -58,5 +58,38 @@ namespace CaravanInstructor.Properties {
                 return ((double)(this["TimerSplash"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\Resources\\Images\\Images\\")]
+        public string ImagesFolder {
+            get {
+                return ((string)(this["ImagesFolder"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.10.2")]
+        public string ServerAddress {
+            get {
+                return ((string)(this["ServerAddress"]));
+            }
+            set {
+                this["ServerAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5001")]
+        public string ServerPort {
+            get {
+                return ((string)(this["ServerPort"]));
+            }
+            set {
+                this["ServerPort"] = value;
+            }
+        }
     }
 }

@@ -95,6 +95,9 @@ namespace CaravanInstructor.Views.UserControls
         }
 
         #region Eventos botones de la barra de navegación
+        /// <summary>
+        /// Description: Realiza el llamado al botón back en el padre
+        /// </summary>
         private void _buttonBack_btn_Click(object sender, RoutedEventArgs e)
         {
             if(_parentWindow_win != null)
@@ -111,6 +114,9 @@ namespace CaravanInstructor.Views.UserControls
                         break;
                     case WindowsType.Scenario:
                         ((ScenarioUI.ScenarioUI)_parentWindow_win).BackButton();
+                        break;
+                    case WindowsType.Setting:
+                        ((Setting.Setting)_parentWindow_win).BackButton();
                         break;
                     default:
                         break;
@@ -153,9 +159,14 @@ namespace CaravanInstructor.Views.UserControls
 
         }
 
+        /// <summary>
+        /// Description: Crea la interfaz setting y esconde al padre
+        /// </summary>
         private void _buttonSettings_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            Setting.Setting setting = new Setting.Setting(_parentWindow_win);
+            setting.Show();
+            _parentWindow_win.Hide();
         }
         #endregion
     }
