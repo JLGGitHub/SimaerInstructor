@@ -25,15 +25,6 @@ namespace CaravanInstructor.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
-        public double TimerSplash {
-            get {
-                return ((double)(this["TimerSplash"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("20")]
         public int FontSizeSplash {
             get {
@@ -47,6 +38,24 @@ namespace CaravanInstructor.Properties {
         public string IconsFolder {
             get {
                 return ((string)(this["IconsFolder"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\Resources\\Images\\Backgrounds\\")]
+        public string BackgroundsFolder {
+            get {
+                return ((string)(this["BackgroundsFolder"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double TimerSplash {
+            get {
+                return ((double)(this["TimerSplash"]));
             }
         }
     }

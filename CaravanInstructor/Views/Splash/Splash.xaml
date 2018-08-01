@@ -9,45 +9,47 @@
         mc:Ignorable="d"
         Title="Splash" Height="700" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="2" Background="#FFCDCDCD">
 
-    <Grid>
-        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,20,0,0" Height="62"  Width="273" Source="/CaravanInstructor;component/Resources/Images/Logos/codaltec.png" />
-        <Image HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,0,0" Height="119"  Width="123" Source="/CaravanInstructor;component/Resources/Images/Logos/fac.png" />
-        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,100" Height="154" Width="572" Source="/CaravanInstructor;component/Resources/Images/Logos/simaer.png"/>
-        <telerik:RadBusyIndicator HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,0,0" Height="200" Width="200" IsBusy="True" Background="Transparent" BorderThickness="0" BusyContent="" RenderTransformOrigin="0.5,0.5" Foreground="Pink">
-            <telerik:RadBusyIndicator.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1.8" ScaleY="1.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </telerik:RadBusyIndicator.RenderTransform>
-            <telerik:RadBusyIndicator.OverlayStyle>
-                <Style TargetType="Rectangle">
-                    <Setter Property="Fill" Value="Transparent" />
-                </Style>
-            </telerik:RadBusyIndicator.OverlayStyle>
-        </telerik:RadBusyIndicator>
+    <Viewbox Stretch="Uniform">
+        <Grid Height="700" Width="600">
+            <Image HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,20,0,0" Height="62"  Width="273" Source="/CaravanInstructor;component/Resources/Images/Logos/codaltec.png" />
+            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,0,0" Height="119"  Width="123" Source="/CaravanInstructor;component/Resources/Images/Logos/fac.png" />
+            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,100" Height="154" Width="572" Source="/CaravanInstructor;component/Resources/Images/Logos/simaer.png"/>
+            <telerik:RadBusyIndicator HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,0,0" Height="200" Width="200" IsBusy="True" Background="Transparent" BorderThickness="0" BusyContent="" RenderTransformOrigin="0.5,0.5" Foreground="Pink">
+                <telerik:RadBusyIndicator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.8" ScaleY="1.8"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </telerik:RadBusyIndicator.RenderTransform>
+                <telerik:RadBusyIndicator.OverlayStyle>
+                    <Style TargetType="Rectangle">
+                        <Setter Property="Fill" Value="Transparent" />
+                    </Style>
+                </telerik:RadBusyIndicator.OverlayStyle>
+            </telerik:RadBusyIndicator>
 
-        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <telerik:Label x:Name="_labelProduct_lbl"  Grid.Row="0" Grid.Column="0" Content="Producto Licenciado A:" HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
-            <telerik:Label x:Name="_labelClient_lbl"  Grid.Row="1" Grid.Column="0" Content="F.A.C. - J.E.A." HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <telerik:Label x:Name="_labelProduct_lbl"  Grid.Row="0" Grid.Column="0" Content="Producto Licenciado A:" HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+                <telerik:Label x:Name="_labelClient_lbl"  Grid.Row="1" Grid.Column="0" Content="F.A.C. - J.E.A." HorizontalAlignment="Left" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            </Grid>
+
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <telerik:Label x:Name="_labelCodaltec_lbl"  Grid.Row="0" Grid.Column="0" Content="© 2018 CODALTEC" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+                <telerik:Label x:Name="_labelReservedRights_lbl"  Grid.Row="1" Grid.Column="0" Content="Todos los derechos reservados" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
+            </Grid>
+
         </Grid>
-
-        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <telerik:Label x:Name="_labelCodaltec_lbl"  Grid.Row="0" Grid.Column="0" Content="© 2018 CODALTEC" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
-            <telerik:Label x:Name="_labelReservedRights_lbl"  Grid.Row="1" Grid.Column="0" Content="Todos los derechos reservados" HorizontalAlignment="Right" FontFamily="Eurostile" FontWeight="Bold" FontSize="20"/>
-        </Grid>
-
-    </Grid>
+    </Viewbox>
 
 
 </Window>

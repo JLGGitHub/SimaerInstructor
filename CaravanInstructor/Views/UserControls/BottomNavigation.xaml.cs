@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using CaravanInstructor.Classes;
+using CaravanInstructor.Views;
 
 namespace CaravanInstructor.Views.UserControls
 {
@@ -12,19 +13,32 @@ namespace CaravanInstructor.Views.UserControls
     public partial class BottomNavigation : UserControl
     {
         #region Variables
-        WindowsType _parentWindow_wty = WindowsType.None;
+        WindowsType _parentWindowType_wty = WindowsType.None;
+        Window _parentWindow_win;
         #endregion
 
         #region Getters y Setters
-        public WindowsType parentWindow_wty
+        public WindowsType ParentWindowType_wty
         {
             get
             {
-                return this._parentWindow_wty;
+                return this._parentWindowType_wty;
             }
             set
             {
-                this._parentWindow_wty = value;
+                this._parentWindowType_wty = value;
+            }
+        }
+
+        public Window ParentWindow_win
+        {
+            get
+            {
+                return this._parentWindow_win;
+            }
+            set
+            {
+                this._parentWindow_win = value;
             }
         }
         #endregion
@@ -55,6 +69,7 @@ namespace CaravanInstructor.Views.UserControls
 
         /// <summary>
         /// Description: Esconde los botones de la barra inferior de navegación de acuerdo a las entradas
+        /// 0 Visible, 1 Hidden, 2 Collapsed
         /// </summary>
         /// <param name="i_buttonBack"></param>
         /// <param name="i_buttonPlay"></param>
@@ -82,7 +97,25 @@ namespace CaravanInstructor.Views.UserControls
         #region Eventos botones de la barra de navegación
         private void _buttonBack_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            if(_parentWindow_win != null)
+            {
+                switch(_parentWindowType_wty)
+                {
+                    case WindowsType.MainWindow:
+                        break;
+                    case WindowsType.SelectInstructor:
+                        ((Select.SelectInstructor)_parentWindow_win).BackButton();
+                        break;
+                    case WindowsType.SelectStudent:
+                        ((Select.SelectStudent)_parentWindow_win).BackButton();
+                        break;
+                    case WindowsType.Scenario:
+                        ((ScenarioUI.ScenarioUI)_parentWindow_win).BackButton();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
         
         private void _buttonMap_btn_Click(object sender, RoutedEventArgs e)

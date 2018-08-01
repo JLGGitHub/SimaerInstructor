@@ -12,6 +12,9 @@ namespace CaravanInstructor.Classes
     public enum WindowsType
     {
         MainWindow,
+        SelectInstructor,
+        SelectStudent,
+        Scenario,
         None
     }
 
@@ -25,6 +28,16 @@ namespace CaravanInstructor.Classes
             string iconsFolder = Properties.Settings.Default.IconsFolder;
 
             return System.IO.Path.GetFullPath(iconsFolder);
+        }
+
+        /// <summary>
+        /// Description: Retorna la dirección donde se encuentran los backgrounds de acuerdo a la configuración
+        /// </summary>
+        public static string GetBackgroundsFullPath()
+        {
+            string backgroundsFolder = Properties.Settings.Default.BackgroundsFolder;
+
+            return System.IO.Path.GetFullPath(backgroundsFolder);
         }
     }
 }

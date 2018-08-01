@@ -17,6 +17,7 @@ namespace CaravanInstructor
     {
         private DispatcherTimer timer;
         public Splash splash;
+        private MainWindow main;
 
         /// <summary>
         /// Description: Evento que se ejecuta al iniciar la aplicación. 
@@ -26,9 +27,11 @@ namespace CaravanInstructor
         protected override void OnStartup(StartupEventArgs e)
         {
             Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
-
+            
             splash = new Splash();
             splash.Show();
+            main = new MainWindow();
+            main.InitData();
 
             base.OnStartup(e);
 
@@ -45,7 +48,6 @@ namespace CaravanInstructor
         /// <param name="e"></param>
         void timer_Tick(object sender, EventArgs e)
         {
-            MainWindow main = new MainWindow();
             splash.Close();
             timer.Stop();
             main.Show();
