@@ -98,6 +98,9 @@
     <Compile Include="Views\Select\SelectInstructor.xaml.cs">
       <DependentUpon>SelectInstructor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Select\SelectStudent.xaml.cs">
+      <DependentUpon>SelectStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Splash\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Select\SelectInstructor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Select\SelectStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

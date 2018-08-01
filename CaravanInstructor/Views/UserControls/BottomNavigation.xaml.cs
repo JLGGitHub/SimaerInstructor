@@ -106,6 +106,9 @@ namespace CaravanInstructor.Views.UserControls
                     case WindowsType.SelectInstructor:
                         ((Select.SelectInstructor)_parentWindow_win).BackButton();
                         break;
+                    case WindowsType.SelectStudent:
+                        ((Select.SelectStudent)_parentWindow_win).BackButton();
+                        break;
                     case WindowsType.Scenario:
                         ((ScenarioUI.ScenarioUI)_parentWindow_win).BackButton();
                         break;

@@ -59,8 +59,9 @@ namespace CaravanInstructor.Views.Select
 
             if (pilotSelected != null)
             {
-                _parent_win.Show();
-                this.Close();
+                SelectStudent selectStudent = new SelectStudent(this);
+                selectStudent.Show();
+                this.Hide();
             }
             else
             {
@@ -74,6 +75,15 @@ namespace CaravanInstructor.Views.Select
             }
         }
         #endregion
+
+        /// <summary>
+        /// Description: Muestra home y finaliza la selección de instructor y estudiante
+        /// </summary>
+        public void FinishSelect()
+        {
+            _parent_win.Show();
+            this.Close();
+        }
 
         /// <summary>
         /// Description: Cuando se cierra la ventana muestra al padre

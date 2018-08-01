@@ -13,6 +13,7 @@ namespace CaravanInstructor.Classes
     {
         MainWindow,
         SelectInstructor,
+        SelectStudent,
         Scenario,
         None
     }
