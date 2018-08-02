@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using CaravanInstructor.Classes;
+using CaravanInstructor.Class;
 using CaravanInstructor.Views;
 
 namespace CaravanInstructor.Views.UserControls

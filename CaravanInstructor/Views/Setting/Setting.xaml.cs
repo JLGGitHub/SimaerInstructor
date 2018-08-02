@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CaravanInstructor.Classes;
+using CaravanInstructor.Class;
 using Telerik.Windows.Controls;
 
 namespace CaravanInstructor.Views.Setting

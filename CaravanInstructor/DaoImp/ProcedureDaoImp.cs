@@ -1,5 +1,5 @@
 ﻿using CaravanInstructor.Dao;
-using CaravanInstructor.Database;
+using CaravanInstructor.Model;
 using System.Collections.Generic;
 using System.Linq;
 

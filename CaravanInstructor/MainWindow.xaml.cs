@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CaravanInstructor.Classes;
+using CaravanInstructor.Class;
 using CaravanInstructor.Views.ScenarioUI;
 using CaravanInstructor.Views.FailsProcedures;
 using CaravanInstructor.Views.Select;

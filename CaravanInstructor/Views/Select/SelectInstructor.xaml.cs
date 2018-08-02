@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CaravanInstructor.Classes;
-using CaravanInstructor.Database;
+using CaravanInstructor.Class;
+using CaravanInstructor.Model;
 using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
@@ -27,6 +27,9 @@ namespace CaravanInstructor.Views.Select
         #region Variables
         private MainWindow _parent_win;
         public List<pilot> Pilots { get; set; }
+        private PilotLogic pilotLogic;
+
+        public static SelectInstructor instance;
         #endregion
 
         public SelectInstructor(MainWindow i_parent)
@@ -34,8 +37,12 @@ namespace CaravanInstructor.Views.Select
             InitializeComponent();
             _parent_win = i_parent;
 
+            pilotLogic = new PilotLogic();
+
             SetInitConfigWindow();
             GetData();
+
+            instance = this;
         }
 
         /// <summary>
@@ -125,6 +132,10 @@ namespace CaravanInstructor.Views.Select
         {
             NewPilot newPilot = new NewPilot();
             newPilot.ShowDialog();
+            
+            Pilots = pilotLogic.ReadPilots();
+            _pilotGridView_rgv.ItemsSource = Pilots;
+            _pilotGridView_rgv.Items.Refresh();
         }
 
         /// <summary>
@@ -210,7 +221,7 @@ namespace CaravanInstructor.Views.Select
                 newPilot._textMilitarCode_tex.Text = item.militar_code;
                 newPilot._textFirstName_tex.Text = item.first_name;
                 newPilot._textLastName_tex.Text = item.last_name;
-                //newPilot._comboGrade_com.SelectedItem = item.grade;
+                newPilot._comboGrade_com.SelectedItem = item.grade;
                 newPilot.ShowDialog();
             }
         }

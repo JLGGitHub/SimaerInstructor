@@ -1,5 +1,5 @@
 ﻿using CaravanInstructor.Dao;
-using CaravanInstructor.Database;
+using CaravanInstructor.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity.Migrations;
@@ -24,7 +24,7 @@ namespace CaravanInstructor.DaoImp
         {
             using (var db = new DbSimaer())
             {
-                return db.pilot.ToList();
+                return db.pilot.Include("grade").ToList();
             }
         }
 

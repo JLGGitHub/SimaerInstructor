@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CaravanInstructor.Classes;
-using CaravanInstructor.Database;
+using CaravanInstructor.Class;
+using CaravanInstructor.Model;
 using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
 

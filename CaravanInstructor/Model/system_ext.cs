@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaravanInstructor.Database
+namespace CaravanInstructor.Model
 {
     public partial class system
     {

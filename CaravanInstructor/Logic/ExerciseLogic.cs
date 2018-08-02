@@ -1,6 +1,6 @@
 ﻿using CaravanInstructor.Dao;
 using CaravanInstructor.DaoImp;
-using CaravanInstructor.Database;
+using CaravanInstructor.Model;
 using System.Collections.Generic;
 
 namespace CaravanInstructor.Logic
