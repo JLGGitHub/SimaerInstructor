@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="PostgreSQL" id="Project_1fcdc85" template="Default" database="PostgreSQL" >
+	<schema name="public" catalogname="simaer" schemaname="public" >
+		<table name="action" >
+			<column name="action_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<column name="data_type_1_id" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="data_1" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="data_type_2_id" type="integer" jt="4" />
+			<column name="data_2" type="varchar" length="20" jt="12" />
+			<index name="pk_action" unique="PRIMARY_KEY" >
+				<column name="action_id" />
+			</index>
+			<index name="idx_action_data_type_1_id" unique="NORMAL" >
+				<column name="data_type_1_id" />
+			</index>
+			<index name="idx_action_data_type_2_id" unique="NORMAL" >
+				<column name="data_type_2_id" />
+			</index>
+			<fk name="fk_action_data_type" to_schema="public" to_table="data_type" delete_action="restrict" update_action="cascade" >
+				<fk_column name="data_type_1_id" pk="data_type_id" />
+			</fk>
+			<fk name="fk_action_data_type_0" to_schema="public" to_table="data_type" delete_action="restrict" update_action="cascade" >
+				<fk_column name="data_type_2_id" pk="data_type_id" />
+			</fk>
+		</table>
+		<table name="attribute" >
+			<column name="attribute_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<column name="data_type_id" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<index name="pk_attribute" unique="PRIMARY_KEY" >
+				<column name="attribute_id" />
+			</index>
+			<index name="idx_attribute_data_type_id" unique="NORMAL" >
+				<column name="data_type_id" />
+			</index>
+			<fk name="fk_attribute_data_type" to_schema="public" to_table="data_type" delete_action="restrict" update_action="cascade" >
+				<fk_column name="data_type_id" pk="data_type_id" />
+			</fk>
+		</table>
+		<table name="data_type" >
+			<column name="data_type_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="15" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_data_type_data_type_id" unique="PRIMARY_KEY" >
+				<column name="data_type_id" />
+			</index>
+		</table>
+		<table name="exercise" >
+			<column name="exercise_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="start_time" type="date" jt="91" mandatory="y" />
+			<column name="end_time" type="date" jt="91" />
+			<column name="instructor_comment" type="text" jt="12" />
+			<column name="procedure_id" type="integer" jt="4" mandatory="y" />
+			<column name="approved" type="bool" jt="-7" mandatory="y" />
+			<column name="report_id" type="integer" jt="4" mandatory="y" />
+			<index name="pk_exercise_excercise_id" unique="PRIMARY_KEY" >
+				<column name="exercise_id" />
+			</index>
+			<index name="idx_exercise_procedure_id" unique="NORMAL" >
+				<column name="procedure_id" />
+			</index>
+			<index name="idx_exercise_report_id" unique="NORMAL" >
+				<column name="report_id" />
+			</index>
+			<fk name="fk_exercise_procedure" to_schema="public" to_table="procedure" delete_action="restrict" update_action="cascade" >
+				<fk_column name="procedure_id" pk="procedure_id" />
+			</fk>
+			<fk name="fk_exercise_report" to_schema="public" to_table="report" delete_action="restrict" update_action="cascade" >
+				<fk_column name="report_id" pk="report_id" />
+			</fk>
+		</table>
+		<table name="grade" >
+			<column name="grade_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="50" jt="12" mandatory="y" />
+			<column name="abbreviation" type="varchar" length="2" jt="12" mandatory="y" />
+			<index name="grade_pk" unique="PRIMARY_KEY" >
+				<column name="grade_id" />
+			</index>
+		</table>
+		<table name="pilot" >
+			<column name="militar_code" type="varchar" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="first_name" type="varchar" length="200" decimal="0" jt="12" mandatory="y" />
+			<column name="last_name" type="varchar" length="200" decimal="0" jt="12" mandatory="y" />
+			<column name="grade_id" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<index name="militar_code_pk" unique="PRIMARY_KEY" >
+				<column name="militar_code" />
+			</index>
+			<index name="idx_pilot_grade_id" unique="NORMAL" >
+				<column name="grade_id" />
+			</index>
+			<fk name="fk_pilot_grade" to_schema="public" to_table="grade" delete_action="restrict" update_action="cascade" >
+				<fk_column name="grade_id" pk="grade_id" />
+			</fk>
+		</table>
+		<table name="procedure" >
+			<column name="procedure_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<column name="description" type="varchar" length="500" decimal="0" jt="12" mandatory="y" />
+			<column name="system_id" type="integer" jt="4" mandatory="y" />
+			<column name="procedure_type_id" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="action_id" type="integer" jt="4" mandatory="y" />
+			<index name="pk_procedure_procedure_id_0" unique="PRIMARY_KEY" >
+				<column name="procedure_id" />
+			</index>
+			<index name="idx_procedure_procedure_type_id" unique="NORMAL" >
+				<column name="procedure_type_id" />
+			</index>
+			<index name="idx_procedure_action_id" unique="NORMAL" >
+				<column name="action_id" />
+			</index>
+			<index name="idx_procedure_system_id" unique="NORMAL" >
+				<column name="system_id" />
+			</index>
+			<fk name="fk_procedure_procedure_type" to_schema="public" to_table="procedure_type" delete_action="restrict" update_action="cascade" >
+				<fk_column name="procedure_type_id" pk="procedure_type_id" />
+			</fk>
+			<fk name="fk_procedure_action" to_schema="public" to_table="action" delete_action="restrict" update_action="cascade" >
+				<fk_column name="action_id" pk="action_id" />
+			</fk>
+			<fk name="fk_procedure_system" to_schema="public" to_table="system" delete_action="restrict" update_action="cascade" >
+				<fk_column name="system_id" pk="system_id" />
+			</fk>
+		</table>
+		<table name="procedure_type" >
+			<column name="procedure_type_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="20" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_procedure_type_procedure_type_id" unique="PRIMARY_KEY" >
+				<column name="procedure_type_id" />
+			</index>
+		</table>
+		<table name="report" >
+			<column name="report_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="scenario_id" type="integer" jt="4" mandatory="y" />
+			<column name="instructor_code" type="varchar" length="25" jt="12" mandatory="y" />
+			<column name="student_code" type="varchar" length="25" jt="12" mandatory="y" />
+			<column name="start_time" type="date" jt="91" mandatory="y" />
+			<column name="end_time" type="date" jt="91" />
+			<index name="pk_report_report_id" unique="PRIMARY_KEY" >
+				<column name="report_id" />
+			</index>
+			<index name="idx_report_instructor_code" unique="NORMAL" >
+				<column name="instructor_code" />
+			</index>
+			<index name="idx_report_student_code" unique="NORMAL" >
+				<column name="student_code" />
+			</index>
+			<index name="idx_report_scenario_id" unique="NORMAL" >
+				<column name="scenario_id" />
+			</index>
+			<fk name="fk_report_pilot" to_schema="public" to_table="pilot" delete_action="restrict" update_action="cascade" >
+				<fk_column name="instructor_code" pk="militar_code" />
+			</fk>
+			<fk name="fk_report_pilot_0" to_schema="public" to_table="pilot" delete_action="restrict" update_action="cascade" >
+				<fk_column name="student_code" pk="militar_code" />
+			</fk>
+			<fk name="fk_report_scenario" to_schema="public" to_table="scenario" delete_action="restrict" update_action="cascade" >
+				<fk_column name="scenario_id" pk="scenario_id" />
+			</fk>
+		</table>
+		<table name="runway_tol" >
+			<comment><![CDATA[TOL: Take Off and Landig
+Condición de la pista para el despegue (take Off) y el aterrizaje (Landing)]]></comment>
+			<column name="runway_tol_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="pk_runway_tol_runway_tol_id" unique="PRIMARY_KEY" >
+				<column name="runway_tol_id" />
+			</index>
+		</table>
+		<table name="scenario" >
+			<column name="scenario_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="runway_tol_id" type="integer" jt="4" mandatory="y" />
+			<column name="time_day_id" type="integer" jt="4" mandatory="y" />
+			<index name="pk_scenario_scenario_id" unique="PRIMARY_KEY" >
+				<column name="scenario_id" />
+			</index>
+			<index name="idx_scenario_runway_tol_id" unique="NORMAL" >
+				<column name="runway_tol_id" />
+			</index>
+			<index name="idx_scenario_time_day_id" unique="NORMAL" >
+				<column name="time_day_id" />
+			</index>
+			<fk name="fk_scenario_runway_tol" to_schema="public" to_table="runway_tol" delete_action="restrict" update_action="cascade" >
+				<fk_column name="runway_tol_id" pk="runway_tol_id" />
+			</fk>
+			<fk name="fk_scenario_time_day" to_schema="public" to_table="time_day" delete_action="restrict" update_action="cascade" >
+				<fk_column name="time_day_id" pk="time_day_id" />
+			</fk>
+		</table>
+		<table name="sim_conditions" >
+			<comment><![CDATA[Tabla que contiene las condiciones previas para que una]]></comment>
+			<column name="con_id_condition_int" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="con_lowthreshold_dou" type="float8" length="17" decimal="17" jt="6" />
+			<column name="con_highthreshold_dou" type="float8" length="17" decimal="17" jt="6" />
+			<column name="pro_id_procedure_int" type="integer" length="10" decimal="0" jt="4" />
+			<column name="att_id_attribute_int" type="integer" length="10" decimal="0" jt="4" />
+			<column name="con_action_int" type="integer" length="10" decimal="0" jt="4" />
+			<index name="pk_condition" unique="PRIMARY_KEY" >
+				<column name="con_id_condition_int" />
+			</index>
+		</table>
+		<table name="sim_sequences" >
+			<column name="seq_id_sequence_int" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="att_id_attribute_int" type="integer" length="10" decimal="0" jt="4" />
+			<column name="seq_steppredecessor_int" type="integer" length="10" decimal="0" jt="4" />
+			<column name="seq_lowthreshold_dou" type="float8" length="17" decimal="17" jt="6" />
+			<column name="seq_highthreshold_dou" type="float8" length="17" decimal="17" jt="6" />
+			<column name="pro_id_procedure_int" type="integer" length="10" decimal="0" jt="4" />
+			<column name="att_evaluable_boo" type="bool" length="1" decimal="0" jt="-7" />
+			<column name="seq_step_int" type="integer" length="10" decimal="0" jt="4" >
+				<comment><![CDATA[Indica el paso del procedimiento, es necesario para agrupar varios subpasos en un solo paso]]></comment>
+			</column>
+			<column name="seq_action_int" type="integer" length="10" decimal="0" jt="4" >
+				<comment><![CDATA[- 0 - No acción
+  - > - 1
+  - < - 2
+  - rango = 3
+  - igual que = 4
+  - desigual = 5]]></comment>
+			</column>
+			<index name="pk_sequence" unique="PRIMARY_KEY" >
+				<column name="seq_id_sequence_int" />
+			</index>
+		</table>
+		<table name="system" >
+			<column name="system_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="50" decimal="0" jt="12" mandatory="y" />
+			<column name="description" type="varchar" length="500" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_system" unique="PRIMARY_KEY" >
+				<column name="system_id" />
+			</index>
+		</table>
+		<table name="time_day" >
+			<column name="time_day_id" type="serial" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="hour_day" type="date" jt="91" mandatory="y" />
+			<index name="pk_time_day_time_day_id" unique="PRIMARY_KEY" >
+				<column name="time_day_id" />
+			</index>
+		</table>
+		<sequence name="action_action_id_seq" start="1" />
+		<sequence name="action_id_action_seq" start="1" />
+		<sequence name="attribute_attribute_id_seq" start="1" />
+		<sequence name="attribute_id_attribute_seq" start="1" />
+		<sequence name="data_type_data_type_id_seq" start="1" />
+		<sequence name="data_type_data_type_id_seq1" start="1" />
+		<sequence name="exercise_excercise_id_seq" start="1" />
+		<sequence name="exercise_exercise_id_seq" start="1" />
+		<sequence name="grade_grade_id_seq" start="1" />
+		<sequence name="grade_id_grade_seq_1" start="1" />
+		<sequence name="procedure_0_procedure_id_seq" start="1" />
+		<sequence name="procedure_procedure_id_seq" start="1" />
+		<sequence name="procedure_type_procedure_type_id_seq" start="1" />
+		<sequence name="procedure_type_procedure_type_id_seq1" start="1" />
+		<sequence name="report_report_id_seq" start="1" />
+		<sequence name="report_report_id_seq1" start="1" />
+		<sequence name="runway_tol_runway_tol_id_seq" start="1" />
+		<sequence name="runway_tol_runway_tol_id_seq1" start="1" />
+		<sequence name="scenario_scenario_id_seq" start="1" />
+		<sequence name="scenario_scenario_id_seq1" start="1" />
+		<sequence name="system_id_system_seq" start="1" />
+		<sequence name="system_system_id_seq" start="1" />
+		<sequence name="time_day_time_day_id_seq" start="1" />
+		<sequence name="time_day_time_day_id_seq1" start="1" />
+		<function name="sample_function" id="Function_5b810b5" isSystem="false" params_known="n" >
+			<string><![CDATA[CREATE OR REPLACE FUNCTION sample_function (int) RETURNS text AS $$ 
+SELECT ($1 + 1)::text 
+$$ LANGUAGE sql;]]></string>
+		</function>
+		<function name="sample_function" id="Function_209aeda" isSystem="false" params_known="n" >
+			<string><![CDATA[CREATE OR REPLACE FUNCTION sample_function (int) RETURNS text AS $$ 
+SELECT ($1 + 1)::text 
+$$ LANGUAGE sql;]]></string>
+		</function>
+	</schema>
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.2.2.jar" driver_desc="Standard" host="localhost" port="5432" instance="simaer" user="postgres" passwd="Y29kYWx0ZWM=" />
+	<layout name="Default Layout" id="Layout_5499ab1" joined_routing="y" show_column_type="y" show_relation="columns" >
+		<entity schema="public" name="scenario" color="F5DDBF" x="752" y="128" />
+		<entity schema="public" name="runway_tol" color="F5DDBF" x="960" y="48" />
+		<entity schema="public" name="pilot" color="BFD4F5" x="736" y="352" />
+		<entity schema="public" name="grade" color="BFD4F5" x="944" y="400" />
+		<entity schema="public" name="sim_conditions" color="BFBFF5" x="48" y="720" />
+		<entity schema="public" name="sim_sequences" color="BFBFF5" x="256" y="720" />
+		<entity schema="public" name="time_day" color="F5DDBF" x="960" y="176" />
+		<entity schema="public" name="procedure_type" color="BFD4F5" x="48" y="256" />
+		<entity schema="public" name="action" color="C8F5BF" x="48" y="368" />
+		<entity schema="public" name="attribute" color="C8F5BF" x="48" y="512" />
+		<entity schema="public" name="data_type" color="C8F5BF" x="288" y="480" />
+		<entity schema="public" name="system" color="BFD4F5" x="48" y="128" />
+		<entity schema="public" name="exercise" color="BFD4F5" x="400" y="64" />
+		<entity schema="public" name="report" color="BFD4F5" x="496" y="256" />
+		<entity schema="public" name="procedure" color="BFD4F5" x="304" y="256" />
+	</layout>
+</project>
