@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CaravanInstructor.Classes;
-using CaravanInstructor.Classes.Pilot;
+using CaravanInstructor.Database;
+using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
 
@@ -23,7 +24,10 @@ namespace CaravanInstructor.Views.Select
     /// </summary>
     public partial class SelectInstructor : Window
     {
+        #region Variables
         private MainWindow _parent_win;
+        public List<pilot> Pilots { get; set; }
+        #endregion
 
         public SelectInstructor(MainWindow i_parent)
         {
@@ -31,6 +35,7 @@ namespace CaravanInstructor.Views.Select
             _parent_win = i_parent;
 
             SetInitConfigWindow();
+            GetData();
         }
 
         /// <summary>
@@ -49,13 +54,24 @@ namespace CaravanInstructor.Views.Select
             _bottomNavigation_use.ParentWindow_win = this;
         }
 
+        /// <summary>
+        /// Description: Obtiene los datos de la base de datos
+        /// </summary>
+        private void GetData()
+        {
+            DataContext = this;
+
+            PilotLogic pilotLogic = new PilotLogic();
+            Pilots = pilotLogic.ReadPilots();
+        }
+
         #region Eventos botones
         /// <summary>
         /// Description: Valida la selección de un instructor
         /// </summary>
         private void _nextButton_btn_Click(object sender, RoutedEventArgs e)
         {
-            Pilot pilotSelected = _pilotGridView_rgv.SelectedItem as Pilot;
+            pilot pilotSelected = _pilotGridView_rgv.SelectedItem as pilot;
 
             if (pilotSelected != null)
             {
@@ -137,7 +153,7 @@ namespace CaravanInstructor.Views.Select
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
 
-        private Pilot _pilotDelete_pit;
+        private pilot _pilotDelete_pit;
 
         public ButtonViewModel()
         {
@@ -151,7 +167,7 @@ namespace CaravanInstructor.Views.Select
         private void OnDeleteCommandExecuted(object obj)
         {
             var row = obj as GridViewRow;
-            Pilot item = row.DataContext as Pilot;
+            pilot item = row.DataContext as pilot;
 
             if (item != null)
             {
@@ -176,7 +192,7 @@ namespace CaravanInstructor.Views.Select
         {
             if (e.DialogResult == true)
             {
-                MainWindow.RemovePilot(_pilotDelete_pit);
+                //DELETE _pilotDelete_pit
             }
         }
 
@@ -186,15 +202,15 @@ namespace CaravanInstructor.Views.Select
         private void OnEditCommandExecuted(object obj)
         {
             var row = obj as GridViewRow;
-            Pilot item = row.DataContext as Pilot;
+            pilot item = row.DataContext as pilot;
 
             if (item != null)
             {
                 NewPilot newPilot = new NewPilot(true);
-                newPilot._textMilitarCode_tex.Text = item.MilitarCode_str;
-                newPilot._textFirstName_tex.Text = item.FirstName_str;
-                newPilot._textLastName_tex.Text = item.LastName_str;
-                newPilot._comboGrade_com.SelectedItem = item.GradeID_gra;
+                newPilot._textMilitarCode_tex.Text = item.militar_code;
+                newPilot._textFirstName_tex.Text = item.first_name;
+                newPilot._textLastName_tex.Text = item.last_name;
+                //newPilot._comboGrade_com.SelectedItem = item.grade;
                 newPilot.ShowDialog();
             }
         }

@@ -100,18 +100,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Pilot\Grade.cs" />
-    <Compile Include="Classes\Pilot\Pilot.cs" />
-    <Compile Include="Classes\Pilot\GradeViewModel.cs" />
-    <Compile Include="Classes\Pilot\PilotViewModel.cs" />
-    <Compile Include="Classes\Scenario\RunwayTol.cs" />
-    <Compile Include="Classes\Scenario\Scenario.cs" />
-    <Compile Include="Classes\Scenario\ScenarioViewModel.cs" />
-    <Compile Include="Classes\Scenario\TimeDay.cs" />
     <Compile Include="Classes\Tools.cs" />
     <Compile Include="DaoImp\ActionDaoImp.cs" />
     <Compile Include="DaoImp\AttributeDaoImp.cs" />
     <Compile Include="DaoImp\ExerciseDaoImp.cs" />
+    <Compile Include="DaoImp\GradeDaoImp.cs" />
     <Compile Include="DaoImp\PilotDaoImp.cs" />
     <Compile Include="DaoImp\ProcedureDaoImp.cs" />
     <Compile Include="DaoImp\ReportDaoImp.cs" />
@@ -120,6 +113,7 @@
     <Compile Include="Dao\IActionDao.cs" />
     <Compile Include="Dao\IAttributeDao.cs" />
     <Compile Include="Dao\IExerciseDao.cs" />
+    <Compile Include="Dao\IGradeDao.cs" />
     <Compile Include="Dao\IPilotDao.cs" />
     <Compile Include="Dao\IProcedureDao.cs" />
     <Compile Include="Dao\IReportDao.cs" />
@@ -155,6 +149,7 @@
     <Compile Include="Database\grade.cs">
       <DependentUpon>GeneralModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\system_ext.cs" />
     <Compile Include="Database\pilot.cs">
       <DependentUpon>GeneralModel.tt</DependentUpon>
     </Compile>
@@ -182,6 +177,7 @@
     <Compile Include="Logic\ActionLogic.cs" />
     <Compile Include="Logic\AttributeLogic.cs" />
     <Compile Include="Logic\ExerciseLogic.cs" />
+    <Compile Include="Logic\GradeLogic.cs" />
     <Compile Include="Logic\PilotLogic.cs" />
     <Compile Include="Logic\ProcedureLogic.cs" />
     <Compile Include="Logic\ReportLogic.cs" />
@@ -199,11 +195,20 @@
     <Compile Include="Views\Select\SelectStudent.xaml.cs">
       <DependentUpon>SelectStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Setting\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Splash\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\BottomNavigation.xaml.cs">
       <DependentUpon>BottomNavigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FailsProcedures\FailsProcedures.xaml.cs">
+      <DependentUpon>FailsProcedures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ListFailsProceduresType1.xaml.cs">
+      <DependentUpon>ListFailsProceduresType1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
@@ -219,6 +224,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\FailsProcedures\FailsProcedures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ScenarioUI\ScenarioUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -235,6 +244,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Setting\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Splash\Splash.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -242,6 +255,10 @@
     <Page Include="Views\UserControls\BottomNavigation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ListFailsProceduresType1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\TopBar.xaml">
       <Generator>MSBuild:Compile</Generator>
