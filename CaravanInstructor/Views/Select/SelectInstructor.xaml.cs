@@ -28,7 +28,6 @@ namespace CaravanInstructor.Views.Select
         private MainWindow _parent_win;
         public List<pilot> Pilots { get; set; }
         private PilotLogic pilotLogic;
-
         public static SelectInstructor instance;
         #endregion
 
@@ -114,6 +113,7 @@ namespace CaravanInstructor.Views.Select
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _parent_win.Show();
+            instance = null;
         }
 
         /// <summary>
@@ -132,7 +132,13 @@ namespace CaravanInstructor.Views.Select
         {
             NewPilot newPilot = new NewPilot();
             newPilot.ShowDialog();
-            
+        }
+
+        /// <summary>
+        /// Description: Actualiza la información en la tabla
+        /// </summary>
+        public void UpdateData()
+        {
             Pilots = pilotLogic.ReadPilots();
             _pilotGridView_rgv.ItemsSource = Pilots;
             _pilotGridView_rgv.Items.Refresh();
@@ -165,11 +171,13 @@ namespace CaravanInstructor.Views.Select
         public ICommand EditCommand { get; set; }
 
         private pilot _pilotDelete_pit;
+        private PilotLogic pilotLogic;
 
         public ButtonViewModel()
         {
             this.DeleteCommand = new DelegateCommand(OnDeleteCommandExecuted);
             this.EditCommand = new DelegateCommand(OnEditCommandExecuted);
+            pilotLogic = new PilotLogic();
         }
 
         /// <summary>
@@ -203,7 +211,17 @@ namespace CaravanInstructor.Views.Select
         {
             if (e.DialogResult == true)
             {
-                //DELETE _pilotDelete_pit
+                pilotLogic.DeletePilot(_pilotDelete_pit);
+
+                if (SelectInstructor.instance != null)
+                {
+                    SelectInstructor.instance.UpdateData();
+                }
+
+                if (SelectStudent.instance != null)
+                {
+                    SelectInstructor.instance.UpdateData();
+                }
             }
         }
 
@@ -221,7 +239,7 @@ namespace CaravanInstructor.Views.Select
                 newPilot._textMilitarCode_tex.Text = item.militar_code;
                 newPilot._textFirstName_tex.Text = item.first_name;
                 newPilot._textLastName_tex.Text = item.last_name;
-                newPilot._comboGrade_com.SelectedItem = item.grade;
+                newPilot._initGrade_str = item.grade_id;
                 newPilot.ShowDialog();
             }
         }

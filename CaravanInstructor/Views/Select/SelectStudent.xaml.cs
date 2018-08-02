@@ -15,7 +15,6 @@ using CaravanInstructor.Class;
 using CaravanInstructor.Model;
 using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
-using Telerik.Windows.Controls.GridView;
 
 namespace CaravanInstructor.Views.Select
 {
@@ -27,6 +26,8 @@ namespace CaravanInstructor.Views.Select
         #region Variables
         private SelectInstructor _parent_win;
         public List<pilot> Pilots { get; set; }
+        private PilotLogic pilotLogic;
+        public static SelectStudent instance;
         #endregion
 
         public SelectStudent(SelectInstructor i_parent)
@@ -36,6 +37,8 @@ namespace CaravanInstructor.Views.Select
 
             SetInitConfigWindow();
             GetData();
+
+            instance = this;
         }
 
         /// <summary>
@@ -45,7 +48,7 @@ namespace CaravanInstructor.Views.Select
         {
             DataContext = this;
 
-            PilotLogic pilotLogic = new PilotLogic();
+            pilotLogic = new PilotLogic();
             Pilots = pilotLogic.ReadPilots();
         }
 
@@ -97,6 +100,7 @@ namespace CaravanInstructor.Views.Select
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _parent_win.Show();
+            instance = null;
         }
 
         /// <summary>
@@ -115,6 +119,16 @@ namespace CaravanInstructor.Views.Select
         {
             NewPilot newPilot = new NewPilot();
             newPilot.ShowDialog();
+        }
+
+        /// <summary>
+        /// Description: Actualiza la información en la tabla
+        /// </summary>
+        public void UpdateData()
+        {
+            Pilots = pilotLogic.ReadPilots();
+            _pilotGridView_rgv.ItemsSource = Pilots;
+            _pilotGridView_rgv.Items.Refresh();
         }
 
         /// <summary>

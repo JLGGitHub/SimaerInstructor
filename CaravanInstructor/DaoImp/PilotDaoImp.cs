@@ -13,7 +13,7 @@ namespace CaravanInstructor.DaoImp
         {
             using (var db = new DbSimaer())
             {
-                db.pilot.Add(InsertPilot);
+                db.pilot.AddOrUpdate(InsertPilot);
                 db.SaveChanges();
 
                 return true;
@@ -43,8 +43,8 @@ namespace CaravanInstructor.DaoImp
         {
             using (var db = new DbSimaer())
             {
-                db.pilot.Remove(DeletePilot);
-                db.SaveChanges();
+                //db.pilot.Remove(DeletePilot);
+                //db.SaveChanges();
 
                 return true;
             }

@@ -27,6 +27,7 @@ namespace CaravanInstructor.Views.Select
         private bool _idEdit_boo = false;
         public List<grade> Grades { get; set; }
         private PilotLogic pilotLogic;
+        public int _initGrade_str = 0;
         #endregion
 
         public NewPilot(bool i_isEdit = false)
@@ -58,6 +59,14 @@ namespace CaravanInstructor.Views.Select
         }
 
         /// <summary>
+        /// Description: Carga el combo box inicial
+        /// </summary>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _comboGrade_com.SelectedIndex = _initGrade_str;
+        }
+
+        /// <summary>
         /// Description: Cierra la ventana
         /// </summary>
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -76,10 +85,8 @@ namespace CaravanInstructor.Views.Select
                 pilot.militar_code = _textMilitarCode_tex.Text;
                 pilot.first_name = _textFirstName_tex.Text;
                 pilot.last_name = _textLastName_tex.Text;
-
                 grade grade = _comboGrade_com.SelectedItem as grade;
-                //pilot.grade_id = grade.grade_id;
-                pilot.grade = grade;
+                pilot.grade_id = grade.grade_id;
                 
                 if (_idEdit_boo == false)
                 {
@@ -88,6 +95,16 @@ namespace CaravanInstructor.Views.Select
                 else
                 {
                     pilotLogic.UpdatePilot(pilot);
+                }
+
+                if(SelectInstructor.instance != null)
+                {
+                    SelectInstructor.instance.UpdateData();
+                }
+
+                if (SelectStudent.instance != null)
+                {
+                    SelectInstructor.instance.UpdateData();
                 }
 
                 this.Close();
