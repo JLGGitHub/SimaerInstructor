@@ -12,9 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CaravanInstructor.Classes;
+using CaravanInstructor.Class;
 using CaravanInstructor.Logic;
-using CaravanInstructor.Database;
+using CaravanInstructor.Model;
 using Telerik.Windows.Controls;
 
 namespace CaravanInstructor.Views.FailsProcedures

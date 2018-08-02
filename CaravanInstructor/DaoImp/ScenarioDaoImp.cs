@@ -1,5 +1,5 @@
 ﻿using CaravanInstructor.Dao;
-using CaravanInstructor.Database;
+using CaravanInstructor.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +11,7 @@ namespace CaravanInstructor.DaoImp
         {
             using (var db = new DbSimaer())
             {
-                return db.scenario.ToList();
+                return db.scenario.Include("time_day").Include("runway_tol").ToList();                 
             }
         }
     }

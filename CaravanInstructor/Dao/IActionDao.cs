@@ -1,4 +1,4 @@
-﻿using CaravanInstructor.Database;
+﻿using CaravanInstructor.Model;
 using System.Collections.Generic;
 
 namespace CaravanInstructor.Dao

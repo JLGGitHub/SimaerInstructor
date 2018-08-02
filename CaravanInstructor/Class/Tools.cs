@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaravanInstructor.Classes
+namespace CaravanInstructor.Class
 {
     /// <summary>
     /// Description: Enumerador para indicar el tipo de interfaz

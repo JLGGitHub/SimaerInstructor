@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CaravanInstructor.Database;
+using CaravanInstructor.Model;
 using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
 
@@ -26,6 +26,7 @@ namespace CaravanInstructor.Views.Select
         #region Variables
         private bool _idEdit_boo = false;
         public List<grade> Grades { get; set; }
+        private PilotLogic pilotLogic;
         #endregion
 
         public NewPilot(bool i_isEdit = false)
@@ -39,6 +40,8 @@ namespace CaravanInstructor.Views.Select
                 _title_txt.Text = "Edit Pilot";
                 _addButton_btn.Content = "Edit";
             }
+
+            pilotLogic = new PilotLogic();
 
             GetData();
         }
@@ -73,16 +76,18 @@ namespace CaravanInstructor.Views.Select
                 pilot.militar_code = _textMilitarCode_tex.Text;
                 pilot.first_name = _textFirstName_tex.Text;
                 pilot.last_name = _textLastName_tex.Text;
-                grade grade = _comboGrade_com.SelectedItem as grade;
-                pilot.grade = grade;
 
+                grade grade = _comboGrade_com.SelectedItem as grade;
+                //pilot.grade_id = grade.grade_id;
+                pilot.grade = grade;
+                
                 if (_idEdit_boo == false)
                 {
-                    //ADD
+                    pilotLogic.CreatePilot(pilot);
                 }
                 else
                 {
-                    //EDIT
+                    pilotLogic.UpdatePilot(pilot);
                 }
 
                 this.Close();

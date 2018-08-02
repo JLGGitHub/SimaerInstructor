@@ -100,7 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Tools.cs" />
+    <Compile Include="Class\Tools.cs" />
     <Compile Include="DaoImp\ActionDaoImp.cs" />
     <Compile Include="DaoImp\AttributeDaoImp.cs" />
     <Compile Include="DaoImp\ExerciseDaoImp.cs" />
@@ -119,61 +119,21 @@
     <Compile Include="Dao\IReportDao.cs" />
     <Compile Include="Dao\IScenarioDao.cs" />
     <Compile Include="Dao\ISystemDao.cs" />
-    <Compile Include="Database\action.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\attribute.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\data_type.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\exercise.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\GeneralModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneralModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\GeneralModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\GeneralModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneralModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Database\grade.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\system_ext.cs" />
-    <Compile Include="Database\pilot.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\procedure.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\procedure_type.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\report.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\runway_tol.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\scenario.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\system.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\time_day.cs">
-      <DependentUpon>GeneralModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Model\action.cs" />
+    <Compile Include="Model\attribute.cs" />
+    <Compile Include="Model\data_type.cs" />
+    <Compile Include="Model\DbSimaer.cs" />
+    <Compile Include="Model\exercise.cs" />
+    <Compile Include="Model\grade.cs" />
+    <Compile Include="Model\pilot.cs" />
+    <Compile Include="Model\procedure.cs" />
+    <Compile Include="Model\procedure_type.cs" />
+    <Compile Include="Model\report.cs" />
+    <Compile Include="Model\runway_tol.cs" />
+    <Compile Include="Model\scenario.cs" />
+    <Compile Include="Model\system.cs" />
+    <Compile Include="Model\system_ext.cs" />
+    <Compile Include="Model\time_day.cs" />
     <Compile Include="Logic\ActionLogic.cs" />
     <Compile Include="Logic\AttributeLogic.cs" />
     <Compile Include="Logic\ExerciseLogic.cs" />
@@ -283,13 +243,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Database\GeneralModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GeneralModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Database\GeneralModel.edmx.diagram">
-      <DependentUpon>GeneralModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -311,18 +264,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Database\GeneralModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GeneralModel.edmx</DependentUpon>
-      <LastGenOutput>GeneralModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Database\GeneralModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GeneralModel.edmx</DependentUpon>
-      <LastGenOutput>GeneralModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
