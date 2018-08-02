@@ -115,6 +115,9 @@ namespace CaravanInstructor.Views.UserControls
                     case WindowsType.Scenario:
                         ((ScenarioUI.ScenarioUI)_parentWindow_win).BackButton();
                         break;
+                    case WindowsType.FailProcedures:
+                        ((FailsProcedures.FailsProcedures)_parentWindow_win).BackButton();
+                        break;
                     case WindowsType.Setting:
                         ((Setting.Setting)_parentWindow_win).BackButton();
                         break;

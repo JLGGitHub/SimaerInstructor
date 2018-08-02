@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CaravanInstructor.Classes;
-using CaravanInstructor.Classes.Pilot;
+using CaravanInstructor.Database;
+using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
 
@@ -23,7 +24,10 @@ namespace CaravanInstructor.Views.Select
     /// </summary>
     public partial class SelectStudent : Window
     {
+        #region Variables
         private SelectInstructor _parent_win;
+        public List<pilot> Pilots { get; set; }
+        #endregion
 
         public SelectStudent(SelectInstructor i_parent)
         {
@@ -31,6 +35,18 @@ namespace CaravanInstructor.Views.Select
             _parent_win = i_parent;
 
             SetInitConfigWindow();
+            GetData();
+        }
+
+        /// <summary>
+        /// Description: Obtiene los datos de la base de datos
+        /// </summary>
+        private void GetData()
+        {
+            DataContext = this;
+
+            PilotLogic pilotLogic = new PilotLogic();
+            Pilots = pilotLogic.ReadPilots();
         }
 
         /// <summary>
@@ -55,7 +71,7 @@ namespace CaravanInstructor.Views.Select
         /// </summary>
         private void _finishButton_btn_Click(object sender, RoutedEventArgs e)
         {
-            Pilot pilotSelected = _pilotGridView_rgv.SelectedItem as Pilot;
+            pilot pilotSelected = _pilotGridView_rgv.SelectedItem as pilot;
 
             if (pilotSelected != null)
             {

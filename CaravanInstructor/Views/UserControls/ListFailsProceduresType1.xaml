@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="CaravanInstructor.Views.UserControls.ListFailsProceduresType1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CaravanInstructor.Views.UserControls"
+             mc:Ignorable="d" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="450" d:DesignWidth="800" BorderThickness="0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <telerik:RadListBox x:Name="_failProcedures_lis" Grid.Row="0" ItemsSource="{Binding SelectFailsProcedures}" SelectionMode="Single" BorderThickness="0" Background="{x:Null}" SelectionChanged="_failProcedures_lis_SelectionChanged">
+            <telerik:RadListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="_checkBoxItem_chb" Content="{Binding Name}" FontSize="30" FontFamily="Eurostile" IsChecked="{Binding IsSelected ,Mode=TwoWay}" Click="_checkBoxItem_chb_Click"/>
+                    </StackPanel>
+                </DataTemplate>
+            </telerik:RadListBox.ItemTemplate>
+        </telerik:RadListBox>
+    </Grid>
+</UserControl>

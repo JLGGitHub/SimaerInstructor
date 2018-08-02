@@ -12,7 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CaravanInstructor.Classes.Pilot;
+using CaravanInstructor.Database;
+using CaravanInstructor.Logic;
 using Telerik.Windows.Controls;
 
 namespace CaravanInstructor.Views.Select
@@ -22,7 +23,10 @@ namespace CaravanInstructor.Views.Select
     /// </summary>
     public partial class NewPilot : Window
     {
+        #region Variables
         private bool _idEdit_boo = false;
+        public List<grade> Grades { get; set; }
+        #endregion
 
         public NewPilot(bool i_isEdit = false)
         {
@@ -35,6 +39,19 @@ namespace CaravanInstructor.Views.Select
                 _title_txt.Text = "Edit Pilot";
                 _addButton_btn.Content = "Edit";
             }
+
+            GetData();
+        }
+
+        /// <summary>
+        /// Description: Obtiene los datos de la base de datos
+        /// </summary>
+        private void GetData()
+        {
+            DataContext = this;
+
+            GradeLogic gradeLogic = new GradeLogic();
+            Grades = gradeLogic.ReadGrades();
         }
 
         /// <summary>
@@ -52,20 +69,20 @@ namespace CaravanInstructor.Views.Select
         {
             if ((_textMilitarCode_tex.Text != "") && (_textFirstName_tex.Text != "") && (_textLastName_tex.Text != ""))
             {
-                Pilot pilot = new Pilot();
-                pilot.MilitarCode_int = Convert.ToInt64(_textMilitarCode_tex.Text);
-                pilot.FirstName_str = _textFirstName_tex.Text;
-                pilot.LastName_str = _textLastName_tex.Text;
-                Grade grade = _comboGrade_com.SelectedItem as Grade;
-                pilot.GradeID_gra = grade;
+                pilot pilot = new pilot();
+                pilot.militar_code = _textMilitarCode_tex.Text;
+                pilot.first_name = _textFirstName_tex.Text;
+                pilot.last_name = _textLastName_tex.Text;
+                grade grade = _comboGrade_com.SelectedItem as grade;
+                pilot.grade = grade;
 
                 if (_idEdit_boo == false)
                 {
-                    MainWindow.AddPilot(pilot);
+                    //ADD
                 }
                 else
                 {
-                    MainWindow.EditPilots(pilot);
+                    //EDIT
                 }
 
                 this.Close();

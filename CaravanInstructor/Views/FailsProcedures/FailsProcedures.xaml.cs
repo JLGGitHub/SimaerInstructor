@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,29 +13,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CaravanInstructor.Classes;
-using CaravanInstructor.Database;
 using CaravanInstructor.Logic;
+using CaravanInstructor.Database;
 using Telerik.Windows.Controls;
 
-namespace CaravanInstructor.Views.ScenarioUI
+namespace CaravanInstructor.Views.FailsProcedures
 {
     /// <summary>
-    /// Lógica de interacción para Scenario.xaml
+    /// Interaction logic for FailsProcedures.xaml
     /// </summary>
-    public partial class ScenarioUI : Window
+    public partial class FailsProcedures : Window
     {
-        #region Variables
         private MainWindow _parent_win;
-        public List<scenario> Scenarios { get; set; }
-        #endregion
 
-        public ScenarioUI(MainWindow i_parent)
+        public List<system> SystemsCaravan { get; set; }
+        
+        public FailsProcedures(MainWindow i_parent)
         {
             InitializeComponent();
+
             _parent_win = i_parent;
 
             SetInitConfigWindow();
-            GetData();
         }
 
         /// <summary>
@@ -43,52 +43,27 @@ namespace CaravanInstructor.Views.ScenarioUI
         private void SetInitConfigWindow()
         {
             string iconsFullPath = Tools.GetIconsFullPath();
-            _iconWindow_img.Source = new BitmapImage(new Uri(iconsFullPath + "world.png"));
+            _iconWindow_img.Source = new BitmapImage(new Uri(iconsFullPath + "play.png"));
 
             string backgroundsFullPath = Tools.GetBackgroundsFullPath();
             _imageWindow_img.ImageSource = new BitmapImage(new Uri(backgroundsFullPath + "ui.png"));
-
-            _bottomNavigation_use.SetCollapsedButtons(0, 2, 2, 2, 2, 2, 2, 2, 0);
-            _bottomNavigation_use.ParentWindowType_wty = WindowsType.Scenario;
+            
+            _bottomNavigation_use.SetCollapsedButtons(0, 2, 0, 0, 0, 0, 0, 0, 0);
+            _bottomNavigation_use.ParentWindowType_wty = WindowsType.FailProcedures;
             _bottomNavigation_use.ParentWindow_win = this;
-        }
 
-        /// <summary>
-        /// Description: Obtiene los datos de la base de datos
-        /// </summary>
-        private void GetData()
-        {
-            DataContext = this;
+            this.DataContext = this;
 
-            ScenarioLogic scenarioLogic = new ScenarioLogic();
-            Scenarios = scenarioLogic.ReadScenarios();
-        }
+            SystemsCaravan = new List<system>();
 
-        #region Eventos botones
-        /// <summary>
-        /// Description: Valida la selección de un escenario
-        /// </summary>
-        private void _finishButton_btn_Click(object sender, RoutedEventArgs e)
-        {
-            scenario scenarioSelected = _scenarioGridView_rgv.SelectedItem as scenario;
+            SystemLogic systemLogic = new SystemLogic();
+            SystemsCaravan = systemLogic.ReadSystems();
 
-            if (scenarioSelected != null)
+            foreach (var item in SystemsCaravan)
             {
-                _parent_win.Show();
-                this.Close();
-            }
-            else
-            {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Alert",
-                    Content = "Select scenario and press finish",
-                    OkButtonContent = "Ok",
-                    Owner = this
-                });
+                item.InitCategories();
             }
         }
-        #endregion
 
         /// <summary>
         /// Description: Cuando se cierra la ventana muestra al padre

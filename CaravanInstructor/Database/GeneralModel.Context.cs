@@ -18,6 +18,7 @@ namespace CaravanInstructor.Database
         public DbSimaer()
             : base("name=DbSimaer")
         {
+            this.Database.Connection.ConnectionString += ";Password=codaltec";
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

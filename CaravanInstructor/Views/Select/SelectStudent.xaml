@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:CaravanInstructor.Views.Select"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:UserControls="clr-namespace:CaravanInstructor.Views.UserControls"
-        xmlns:ViewModel="clr-namespace:CaravanInstructor.Classes.Pilot"
         xmlns:searchPanel="clr-namespace:Telerik.Windows.Controls.GridView.SearchPanel;assembly=Telerik.Windows.Controls.GridView"
         Title="Módulo instructor SIMAER CARAVAN 208 - CODALTEC" Height="1080" Width="1920" WindowState="Maximized" WindowStartupLocation="CenterScreen"
         WindowStyle="None" BorderBrush="Black" BorderThickness="1" Closing="Window_Closing">
 
     <Window.Resources>
-        <ViewModel:PilotViewModel x:Key="PilotViewModel"/>
         <local:ButtonViewModel x:Key="ButtonViewModel"/>
         <local:ConverterDelete x:Key="ConverterDelete"/>
         <local:ConverterEdit x:Key="ConverterEdit"/>
@@ -135,16 +133,16 @@
                         <Image x:Name="_iconWindow_img" Height="100" Width="100"/>
                         <telerik:Label x:Name="_textWindow_lbl" Content="SELECT STUDENT" FontSize="35" FontFamily="Eurostile" Margin="10,0,0,0" FontWeight="Bold" />
                     </StackPanel>
-                    <Grid Grid.Row="1" DataContext="{StaticResource PilotViewModel}" Margin="30,0,30,0">
+                    <Grid Grid.Row="1" Margin="30,0,30,0">
                         <telerik:RadGridView x:Name="_pilotGridView_rgv" AutoGenerateColumns="False" 
                                          ItemsSource="{Binding Pilots}" RowIndicatorVisibility="Collapsed"
                                          ShowGroupPanel="False" CanUserReorderColumns="False"
                                          ShowSearchPanel="True">
                             <telerik:RadGridView.Columns>
-                                <telerik:GridViewDataColumn Header="Militar Code" DataMemberBinding="{Binding MilitarCode_str}" IsReadOnly="True" Width="19*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
-                                <telerik:GridViewDataColumn Header="Last Name" DataMemberBinding="{Binding LastName_str}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
-                                <telerik:GridViewDataColumn Header="First Name" DataMemberBinding="{Binding FirstName_str}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
-                                <telerik:GridViewDataColumn Header="Grade" DataMemberBinding="{Binding AbbreviationGrade_str}" IsReadOnly="True" Width="9*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                                <telerik:GridViewDataColumn Header="Militar Code" DataMemberBinding="{Binding militar_code}" IsReadOnly="True" Width="19*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                                <telerik:GridViewDataColumn Header="Last Name" DataMemberBinding="{Binding last_name}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                                <telerik:GridViewDataColumn Header="First Name" DataMemberBinding="{Binding first_name}" IsReadOnly="True" Width="30*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
+                                <telerik:GridViewDataColumn Header="Grade" DataMemberBinding="{Binding grade.abbreviation}" IsReadOnly="True" Width="9*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}"/>
                                 <telerik:GridViewDataColumn Header="Edit" IsReadOnly="True" Width="6*" HeaderCellStyle="{StaticResource HeaderStyle}" CellStyle="{StaticResource CellsStyle}">
                                     <telerik:GridViewColumn.CellTemplate>
                                         <DataTemplate>

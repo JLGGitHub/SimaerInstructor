@@ -15,6 +15,7 @@ namespace CaravanInstructor.Classes
         SelectInstructor,
         SelectStudent,
         Scenario,
+        FailProcedures,
         Setting,
         None
     }
