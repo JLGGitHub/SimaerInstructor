@@ -1,0 +1,57 @@
+﻿<Window x:Class="CaravanInstructor.Views.FailsProcedures.ActivateProcedure"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaravanInstructor.Views.FailsProcedures"
+        mc:Ignorable="d"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="Activate" Height="250" Width="450" WindowStyle="None" BorderBrush="Black" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Loaded="Window_Loaded">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <Border x:Name="_borderTitle_bor" BorderThickness="1" BorderBrush="Black" Grid.Row="0" MouseDown="_borderTitle_bor_MouseDown">
+                <DockPanel x:Name="RootWindow">
+                    <DockPanel x:Name="TitleBar" DockPanel.Dock="Top">
+                        <Button Width="30" x:Name="CloseButton" Content="X" FontSize="20"
+                        Click="CloseButton_Click"                 
+                        DockPanel.Dock="Right" BorderThickness="0"/>
+                        <TextBlock x:Name="_title_txt" Text="Activate Procedure" Width="400" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Eurostila" FontSize="30" Margin="10,0,0,0" />
+                    </DockPanel>
+                </DockPanel>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1">
+                <Grid Margin="20,0,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}">
+                        <telerik:RadToggleButton x:Name="_nowButton_btn" Content="Now" IsChecked="True" FontFamily="Eurostile" FontSize="25" Height="40" Width="100" Click="_nowButton_btn_Click"/>
+                        <telerik:RadToggleButton x:Name="_programmedButton_btn" Content="Programmed" FontFamily="Eurostile" FontSize="25" Height="40" Width="306" Click="_programmedButton_btn_Click"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}">
+                        <telerik:RadComboBox x:Name="_comboParameter_com" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Height="40" Width="270" ItemsSource="{Binding }" DisplayMemberPath="" SelectedIndex="0"/>
+                        <telerik:RadWatermarkTextBox x:Name="_textValue_tex" Margin="30,0,0,0" Foreground="LightGray" WatermarkContent="Value" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="106" TextChanged="_textValue_tex_TextChanged"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" >
+                        
+                    </Grid>
+                    <telerik:RadButton x:Name="_startButton_btn" Content="Start" FontFamily="Eurostile" FontSize="25" Height="40" Width="100" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" Click="_startButton_btn_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

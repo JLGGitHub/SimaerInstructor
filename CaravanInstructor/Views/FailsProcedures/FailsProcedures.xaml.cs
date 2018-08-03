@@ -24,17 +24,27 @@ namespace CaravanInstructor.Views.FailsProcedures
     /// </summary>
     public partial class FailsProcedures : Window
     {
+        #region Variables
         private MainWindow _parent_win;
+        private SystemLogic systemLogic;
+        private ProcedureLogic procedureLogic;
+        private List<system> Systems;
+        private List<procedure_type> ProcedureTypes;
 
-        public List<system> SystemsCaravan { get; set; }
-        
+        public List<SystemsCaravan> SystemsCaravan { get; set; }
+        #endregion
+
         public FailsProcedures(MainWindow i_parent)
         {
             InitializeComponent();
 
             _parent_win = i_parent;
 
+            systemLogic = new SystemLogic();
+            procedureLogic = new ProcedureLogic();
+
             SetInitConfigWindow();
+            GetData();
         }
 
         /// <summary>
@@ -51,17 +61,40 @@ namespace CaravanInstructor.Views.FailsProcedures
             _bottomNavigation_use.SetCollapsedButtons(0, 2, 0, 0, 0, 0, 0, 0, 0);
             _bottomNavigation_use.ParentWindowType_wty = WindowsType.FailProcedures;
             _bottomNavigation_use.ParentWindow_win = this;
+        }
 
-            this.DataContext = this;
+        /// <summary>
+        /// Description: Obtiene los datos de la base de datos
+        /// </summary>
+        private void GetData()
+        {
+            DataContext = this;
 
-            SystemsCaravan = new List<system>();
+            Systems = systemLogic.ReadSystems();
+            ProcedureTypes = procedureLogic.ReadProceduresTypes();
 
-            SystemLogic systemLogic = new SystemLogic();
-            SystemsCaravan = systemLogic.ReadSystems();
+            SystemsCaravan = new List<SystemsCaravan>();
+            SystemsCaravan systemCaravan;
+            ProceduresType proceduresType;
 
-            foreach (var item in SystemsCaravan)
+            foreach (system system in Systems)
             {
-                item.InitCategories();
+                systemCaravan = new SystemsCaravan(system);
+                foreach (procedure_type proceduretype in ProcedureTypes)
+                {
+                    proceduresType = new ProceduresType(proceduretype);
+                    List<procedure> listProcedures = procedureLogic.ReadProceduresBySystemProcType(system, proceduretype);
+                    foreach (var procedure in listProcedures)
+                    {
+                        proceduresType.Procedures.Add(new Procedures(procedure));
+                    }
+
+                    if (proceduresType.Procedures.Count > 0)
+                    {
+                        systemCaravan.ProceduresType.Add(proceduresType);
+                    }
+                }
+                SystemsCaravan.Add(systemCaravan);
             }
         }
 
@@ -80,6 +113,24 @@ namespace CaravanInstructor.Views.FailsProcedures
         {
             _parent_win.Show();
             this.Close();
+        }
+        
+        private void _radTreeViewSystems_rtv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProceduresType proceduresType = _radTreeViewSystems_rtv.SelectedItem as ProceduresType;
+            
+            if (proceduresType != null)
+            {
+                RadTreeView treeView = sender as RadTreeView;
+                RadTreeViewItem item = treeView.ContainerFromItemRecursive(treeView.SelectedItem);
+                RadTreeViewItem parentItem = item.ParentItem;
+                SystemsCaravan systemsCaravan = parentItem.DataContext as SystemsCaravan;
+
+                if(systemsCaravan != null)
+                {
+                    _listProcedures_use.UpdateData(item.Index, systemsCaravan);
+                }
+            }
         }
     }
 }
