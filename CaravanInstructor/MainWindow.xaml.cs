@@ -78,7 +78,8 @@ namespace CaravanInstructor
         /// </summary>
         private void _buttonPlay_btn_Click(object sender, RoutedEventArgs e)
         {
-            FailsProcedures failProcedures = new FailsProcedures(this);
+            FailsProcedures failProcedures = FailsProcedures.GetInstance();
+            failProcedures.Parent_win = this;
             failProcedures.Show();
             this.Hide();
         }

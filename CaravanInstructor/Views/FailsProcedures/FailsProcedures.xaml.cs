@@ -33,12 +33,35 @@ namespace CaravanInstructor.Views.FailsProcedures
 
         public List<SystemsCaravan> SystemsCaravan { get; set; }
         #endregion
+        
+        #region Getters y setters
+        public MainWindow Parent_win
+        {
+            get
+            {
+                return this._parent_win;
+            }
+            set
+            {
+                this._parent_win = value;
+            }
+        }
+        #endregion
 
-        public FailsProcedures(MainWindow i_parent)
+        #region Singleton
+        private static FailsProcedures instance = null;
+
+        public static FailsProcedures GetInstance()
+        {
+            if (instance == null)
+                instance = new FailsProcedures();
+            return instance;
+        }
+        #endregion
+
+        public FailsProcedures()
         {
             InitializeComponent();
-
-            _parent_win = i_parent;
 
             systemLogic = new SystemLogic();
             procedureLogic = new ProcedureLogic();
@@ -99,11 +122,19 @@ namespace CaravanInstructor.Views.FailsProcedures
         }
 
         /// <summary>
-        /// Description: Cuando se cierra la ventana muestra al padre
+        /// Description: Cuando se cierra la ventana muestra al padre y esconde la ventana
         /// </summary>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            _parent_win.Show();
+            try
+            {
+                _parent_win.Show();
+                e.Cancel = true;
+                this.Hide();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         /// <summary>
@@ -112,7 +143,7 @@ namespace CaravanInstructor.Views.FailsProcedures
         public void BackButton()
         {
             _parent_win.Show();
-            this.Close();
+            this.Hide();
         }
         
         private void _radTreeViewSystems_rtv_SelectionChanged(object sender, SelectionChangedEventArgs e)
