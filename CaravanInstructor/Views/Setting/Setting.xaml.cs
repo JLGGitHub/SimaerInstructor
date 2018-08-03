@@ -23,13 +23,39 @@ namespace CaravanInstructor.Views.Setting
     /// </summary>
     public partial class Setting : Window
     {
+        #region Variables
         private Window _parent_win;
         private bool _isConnected_boo = false;
+        #endregion
 
-        public Setting(Window i_parent)
+        #region Getters y setters
+        public Window Parent_win
+        {
+            get
+            {
+                return this._parent_win;
+            }
+            set
+            {
+                this._parent_win = value;
+            }
+        }
+        #endregion
+
+        #region Singleton
+        private static Setting instance = null;
+        
+        public static Setting GetInstance()
+        {
+            if (instance == null)
+                instance = new Setting();
+            return instance;
+        }
+        #endregion
+        
+        public Setting()
         {
             InitializeComponent();
-            _parent_win = i_parent;
 
             SetInitConfigWindow();
             ValidateConnection();
@@ -59,20 +85,28 @@ namespace CaravanInstructor.Views.Setting
         }
 
         /// <summary>
-        /// Description: Cuando se cierra la ventana muestra al padre
+        /// Description: Cuando se cierra la ventana muestra al padre y esconde la ventana
         /// </summary>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            _parent_win.Show();
+            try
+            {
+                _parent_win.Show();
+                e.Cancel = true;
+                this.Hide();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         /// <summary>
-        /// Description: Muestra al padre y cierra la ventana
+        /// Description: Muestra al padre y esconde la ventana
         /// </summary>
         public void BackButton()
         {
             _parent_win.Show();
-            this.Close();
+            this.Hide();
         }
 
         #region Evento botones
