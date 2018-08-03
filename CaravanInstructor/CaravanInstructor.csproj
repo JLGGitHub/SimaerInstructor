@@ -100,6 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\FailProceduresViewModel.cs" />
     <Compile Include="Class\Tools.cs" />
     <Compile Include="DaoImp\ActionDaoImp.cs" />
     <Compile Include="DaoImp\AttributeDaoImp.cs" />
@@ -132,7 +133,6 @@
     <Compile Include="Model\runway_tol.cs" />
     <Compile Include="Model\scenario.cs" />
     <Compile Include="Model\system.cs" />
-    <Compile Include="Model\system_ext.cs" />
     <Compile Include="Model\time_day.cs" />
     <Compile Include="Logic\ActionLogic.cs" />
     <Compile Include="Logic\AttributeLogic.cs" />
@@ -143,6 +143,9 @@
     <Compile Include="Logic\ReportLogic.cs" />
     <Compile Include="Logic\ScenarioLogic.cs" />
     <Compile Include="Logic\SystemLogic.cs" />
+    <Compile Include="Views\FailsProcedures\ActivateProcedure.xaml.cs">
+      <DependentUpon>ActivateProcedure.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ScenarioUI\ScenarioUI.xaml.cs">
       <DependentUpon>ScenarioUI.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\FailsProcedures\ActivateProcedure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FailsProcedures\FailsProcedures.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

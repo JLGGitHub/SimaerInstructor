@@ -167,7 +167,8 @@ namespace CaravanInstructor.Views.UserControls
         /// </summary>
         private void _buttonSettings_btn_Click(object sender, RoutedEventArgs e)
         {
-            Setting.Setting setting = new Setting.Setting(_parentWindow_win);
+            Setting.Setting setting = Setting.Setting.GetInstance();
+            setting.Parent_win = _parentWindow_win;
             setting.Show();
             _parentWindow_win.Hide();
         }

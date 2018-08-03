@@ -12,12 +12,12 @@
         WindowStyle="None" BorderBrush="Black" BorderThickness="1" Closing="Window_Closing">
 
     <Window.Resources>
-        <DataTemplate x:Key="Category">
-            <TextBlock Text="{Binding }" Margin="10" FontFamily="Eurostile" FontSize="30"/>
+        <DataTemplate x:Key="ProcedureType">
+            <TextBlock Text="{Binding ProcedureType.name}" Margin="10" FontFamily="Eurostile" FontSize="30"/>
         </DataTemplate>
-        <HierarchicalDataTemplate x:Key="SystemCaravan" ItemTemplate="{StaticResource Category}"
-               ItemsSource="{Binding categories}">
-            <TextBlock Text="{Binding name}" Margin="15" FontWeight="Bold" FontFamily="Eurostile" FontSize="30"/>
+        <HierarchicalDataTemplate x:Key="SystemCaravan" ItemTemplate="{StaticResource ProcedureType}"
+               ItemsSource="{Binding ProceduresType}">
+            <TextBlock Text="{Binding System.name}" Margin="15" FontWeight="Bold" FontFamily="Eurostile" FontSize="30"/>
         </HierarchicalDataTemplate>
     </Window.Resources>
 
@@ -54,11 +54,11 @@
                                 <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1">
-                                <telerik:RadTreeView x:Name="_radTreeViewSystems_rtv" ItemsSource="{Binding SystemsCaravan}" ItemTemplate="{StaticResource SystemCaravan}" IsExpandOnSingleClickEnabled="True"/>
+                                <telerik:RadTreeView x:Name="_radTreeViewSystems_rtv" ItemsSource="{Binding SystemsCaravan}" ItemTemplate="{StaticResource SystemCaravan}" IsExpandOnSingleClickEnabled="True" SelectionChanged="_radTreeViewSystems_rtv_SelectionChanged"/>
                             </Border>
                             <Border  Grid.Column="1" BorderBrush="Black" BorderThickness="1">
                                 <ContentControl>
-                                    <UserControls:ListFailsProceduresType1 Margin="20">
+                                    <UserControls:ListFailsProceduresType1 x:Name="_listProcedures_use" Margin="40,60,40,20">
                                     </UserControls:ListFailsProceduresType1>
                                 </ContentControl>
                             </Border>

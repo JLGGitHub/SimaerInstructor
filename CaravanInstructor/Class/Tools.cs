@@ -20,6 +20,12 @@ namespace CaravanInstructor.Class
         None
     }
 
+    public enum UserControlsType
+    {
+        ListFailsProceduresType1,
+        None
+    }
+
     class Tools
     {
         /// <summary>
