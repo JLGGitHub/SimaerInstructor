@@ -10,7 +10,6 @@ namespace CaravanInstructor.Model
         public DbSimaer()
             : base("name=DbSimaer")
         {
-            Database.Connection.ConnectionString += ";Password=codaltec";
         }
 
         public virtual DbSet<action> action { get; set; }

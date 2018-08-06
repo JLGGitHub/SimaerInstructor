@@ -11,7 +11,7 @@ namespace CaravanInstructor.DaoImp
         {
             using (var db = new DbSimaer())
             {
-                return db.grade.ToList();
+                return db.grade.OrderBy(ograde => ograde.grade_id).ToList();
             }
         }
     }

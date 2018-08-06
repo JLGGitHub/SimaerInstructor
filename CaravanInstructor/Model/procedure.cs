@@ -32,6 +32,8 @@ namespace CaravanInstructor.Model
 
         public int action_id { get; set; }
 
+        public int? category { get; set; }
+
         public virtual action action { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

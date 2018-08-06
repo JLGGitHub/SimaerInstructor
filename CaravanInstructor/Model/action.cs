@@ -24,14 +24,7 @@ namespace CaravanInstructor.Model
 
         public int data_type_1_id { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string data_1 { get; set; }
-
         public int? data_type_2_id { get; set; }
-
-        [StringLength(20)]
-        public string data_2 { get; set; }
 
         public virtual data_type data_type { get; set; }
 

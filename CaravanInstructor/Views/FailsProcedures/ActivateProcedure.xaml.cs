@@ -25,7 +25,6 @@ namespace CaravanInstructor.Views.FailsProcedures
         #region Variables
         private UserControl _parent_win;
         UserControlsType _parentType_wty = UserControlsType.None;
-        public int _initParameter_str = 0;
         #endregion
 
         #region Getters y Setters
@@ -47,14 +46,6 @@ namespace CaravanInstructor.Views.FailsProcedures
             InitializeComponent();
 
             _parent_win = i_parent;
-        }
-
-        /// <summary>
-        /// Description: Carga el combo box inicial
-        /// </summary>
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            _comboParameter_com.SelectedIndex = _initParameter_str;
         }
 
         /// <summary>
