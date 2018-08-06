@@ -23,7 +23,7 @@ namespace CaravanInstructor.Model
         public string name { get; set; }
 
         [Required]
-        [StringLength(2)]
+        [StringLength(4)]
         public string abbreviation { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

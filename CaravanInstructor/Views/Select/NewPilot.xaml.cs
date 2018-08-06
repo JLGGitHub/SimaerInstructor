@@ -104,7 +104,7 @@ namespace CaravanInstructor.Views.Select
 
                 if (SelectStudent.instance != null)
                 {
-                    SelectInstructor.instance.UpdateData();
+                    SelectStudent.instance.UpdateData();
                 }
 
                 this.Close();

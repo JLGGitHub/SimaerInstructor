@@ -140,7 +140,13 @@ namespace CaravanInstructor.Views.UserControls
                 {
                     foreach (var procedures in proceduresType.Procedures)
                     {
-                        procedures.IsEnabled = true;
+                        if (procedure.Procedure.category != null)
+                        {
+                            if (procedure.Procedure.category == procedures.Procedure.category)
+                            {
+                                procedures.IsEnabled = true;
+                            }
+                        }
                     }
                 }
 
@@ -164,7 +170,13 @@ namespace CaravanInstructor.Views.UserControls
                     {
                         if (procedures.Procedure.procedure_id != procedure.Procedure.procedure_id)
                         {
-                            procedures.IsEnabled = false;
+                            if (procedure.Procedure.category != null)
+                            {
+                                if (procedure.Procedure.category == procedures.Procedure.category)
+                                {
+                                    procedures.IsEnabled = false;
+                                }
+                            }
                         }
                     }
                 }

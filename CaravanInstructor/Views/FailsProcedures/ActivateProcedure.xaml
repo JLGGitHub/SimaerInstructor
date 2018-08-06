@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:CaravanInstructor.Views.FailsProcedures"
         mc:Ignorable="d"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-        Title="Activate" Height="250" Width="450" WindowStyle="None" BorderBrush="Black" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Loaded="Window_Loaded">
+        Title="Activate" Height="250" Width="450" WindowStyle="None" BorderBrush="Black" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <Grid>
         <Grid>
@@ -39,7 +38,11 @@
                         <telerik:RadToggleButton x:Name="_programmedButton_btn" Content="Programmed" FontFamily="Eurostile" FontSize="25" Height="40" Width="306" Click="_programmedButton_btn_Click"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}, Path=ActualWidth}">
-                        <telerik:RadComboBox x:Name="_comboParameter_com" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Height="40" Width="270" ItemsSource="{Binding }" DisplayMemberPath="" SelectedIndex="0"/>
+                        <telerik:RadComboBox x:Name="_comboParameter_com" HorizontalAlignment="Left" FontFamily="Eurostile" FontSize="25" Height="40" Width="270" ItemsSource="{Binding }" DisplayMemberPath="" SelectedIndex="0">
+                            <telerik:RadComboBoxItem Content="Height"/>
+                            <telerik:RadComboBoxItem Content="Quias"/>
+                            <telerik:RadComboBoxItem Content="Timer"/>
+                        </telerik:RadComboBox>
                         <telerik:RadWatermarkTextBox x:Name="_textValue_tex" Margin="30,0,0,0" Foreground="LightGray" WatermarkContent="Value" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" Height="40" Width="106" TextChanged="_textValue_tex_TextChanged"/>
                     </StackPanel>
 
