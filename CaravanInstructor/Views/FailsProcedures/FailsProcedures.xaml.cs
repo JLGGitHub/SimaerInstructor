@@ -152,7 +152,10 @@ namespace CaravanInstructor.Views.FailsProcedures
             _parent_win.Show();
             this.Hide();
         }
-        
+
+        /// <summary>
+        /// Description: Muestra cada uno de los procedimiento de la categoría seleccionada
+        /// </summary>
         private void _radTreeViewSystems_rtv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ProceduresType proceduresType = _radTreeViewSystems_rtv.SelectedItem as ProceduresType;
@@ -176,8 +179,6 @@ namespace CaravanInstructor.Views.FailsProcedures
                         _listFailsProcedures_cco.Content = _listFailsProceduresType1_use;
                         _listFailsProceduresType1_use.UpdateData(item.Index, systemsCaravan);
                     }
-
-                    
                 }
             }
         }

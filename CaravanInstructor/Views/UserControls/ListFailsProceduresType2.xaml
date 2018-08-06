@@ -23,10 +23,10 @@
         <CheckBox x:Name="_rightCheckbox_che" Content="Right" FontFamily="Eurostile" FontSize="30" Grid.Column="0" Grid.Row="1" Click="_rightCheckbox_che_Click"/>
         <CheckBox x:Name="_bothCheckbox_che" Content="Both" FontFamily="Eurostile" FontSize="30" Grid.Column="0" Grid.Row="2" Click="_bothCheckbox_che_Click"/>
         <telerik:Label Content="Enter fuel qty" FontFamily="Eurostile" FontSize="30" Grid.Column="1" Grid.Row="0" />
-        <telerik:RadWatermarkTextBox x:Name="_textValue_tex" Foreground="LightGray" WatermarkContent="Value" FontStyle="Normal" FontFamily="Eurostile" FontSize="30" Grid.Column="1" Grid.Row="1" Height="50" TextChanged="_textValue_tex_TextChanged" PreviewTextInput="_textValue_tex_PreviewTextInput"/>
+        <telerik:RadWatermarkTextBox x:Name="_textValue_tex" Foreground="LightGray" WatermarkContent="Value" FontStyle="Normal" FontFamily="Eurostile" FontSize="30" Grid.Column="1" Grid.Row="1" Height="50" TextChanged="_textValue_tex_TextChanged" PreviewTextInput="_textValue_tex_PreviewTextInput" KeyDown="_textValue_tex_KeyDown"/>
         <telerik:Label Content="*160 gal max" FontFamily="Eurostile" FontSize="30" Grid.Column="1" Grid.Row="2" />
         <telerik:Label Content="Fuel leak" FontFamily="Eurostile" FontSize="30" Grid.Column="0" Grid.Row="3" />
-        <telerik:RadComboBox x:Name="_comboParameter_com" FontFamily="Eurostile" FontSize="30" Grid.Column="1" Grid.Row="3" Height="50" SelectedIndex="0">
+        <telerik:RadComboBox x:Name="_comboParameter_com" FontFamily="Eurostile" FontSize="30" Grid.Column="1" Grid.Row="3" Height="50" SelectionChanged="_comboParameter_com_SelectionChanged">
             <telerik:RadComboBoxItem Content="Left"/>
             <telerik:RadComboBoxItem Content="Right"/>
             <telerik:RadComboBoxItem Content="Both"/>
