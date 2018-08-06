@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using CaravanInstructor.Class;
 using CaravanInstructor.Logic;
 using CaravanInstructor.Model;
+using CaravanInstructor.Views.UserControls;
 using Telerik.Windows.Controls;
 
 namespace CaravanInstructor.Views.FailsProcedures
@@ -32,8 +33,11 @@ namespace CaravanInstructor.Views.FailsProcedures
         private List<procedure_type> ProcedureTypes;
 
         public List<SystemsCaravan> SystemsCaravan { get; set; }
+
+        private ListFailsProceduresType1 _listFailsProceduresType1_use;
+        private ListFailsProceduresType2 _listFailsProceduresType2_use;
         #endregion
-        
+
         #region Getters y setters
         public MainWindow Parent_win
         {
@@ -84,6 +88,9 @@ namespace CaravanInstructor.Views.FailsProcedures
             _bottomNavigation_use.SetCollapsedButtons(0, 2, 0, 0, 0, 0, 0, 0, 0);
             _bottomNavigation_use.ParentWindowType_wty = WindowsType.FailProcedures;
             _bottomNavigation_use.ParentWindow_win = this;
+
+            _listFailsProceduresType1_use = new ListFailsProceduresType1();
+            _listFailsProceduresType2_use = new ListFailsProceduresType2();
         }
 
         /// <summary>
@@ -159,7 +166,18 @@ namespace CaravanInstructor.Views.FailsProcedures
 
                 if(systemsCaravan != null)
                 {
-                    _listProcedures_use.UpdateData(item.Index, systemsCaravan);
+                    if ((systemsCaravan.System.system_id == (int) EnumSystemsType.Fuel) && (proceduresType.ProcedureType.procedure_type_id == (int)EnumProceduresType.Failure))
+                    {
+                        _listFailsProcedures_cco.Content = _listFailsProceduresType2_use;
+                        _listFailsProceduresType2_use.UpdateData(item.Index, systemsCaravan);
+                    }
+                    else
+                    {
+                        _listFailsProcedures_cco.Content = _listFailsProceduresType1_use;
+                        _listFailsProceduresType1_use.UpdateData(item.Index, systemsCaravan);
+                    }
+
+                    
                 }
             }
         }

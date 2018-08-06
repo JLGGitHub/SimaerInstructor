@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using CaravanInstructor.Class;
 using CaravanInstructor.Views.UserControls;
+using System.Text.RegularExpressions;
 
 namespace CaravanInstructor.Views.FailsProcedures
 {
@@ -96,41 +97,48 @@ namespace CaravanInstructor.Views.FailsProcedures
             }
         }
 
-        #region Evento botones
         /// <summary>
-        /// Description: Toggle now y programmed
+        /// Description: Valida que el texto escrito sea flotante
+        /// </summary>
+        private void _textValue_tex_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+            if (regex.IsMatch(e.Text) && !(e.Text == "." && ((TextBox)sender).Text.Contains(e.Text)))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        #region Evento botones
+
+        /// <summary>
+        /// Description: Inicia el procedimiento sin parametros
         /// </summary>
         private void _nowButton_btn_Click(object sender, RoutedEventArgs e)
         {
-            if(_nowButton_btn.IsChecked == true)
+            if (_parent_win != null)
             {
-                _programmedButton_btn.IsChecked = false;
+                switch (_parentType_wty)
+                {
+                    case UserControlsType.ListFailsProceduresType1:
+                        ((UserControls.ListFailsProceduresType1)_parent_win).ConfirmStartProcedure(true);
+                        break;
+                    default:
+                        break;
+                }
             }
-            else
-            {
-                _programmedButton_btn.IsChecked = true;
-            }
+
+            this.Close();
         }
 
         /// <summary>
-        /// Description: Toggle now y programmed
+        /// Description: Inicia el procedimiento con parametros
         /// </summary>
         private void _programmedButton_btn_Click(object sender, RoutedEventArgs e)
-        {
-            if (_programmedButton_btn.IsChecked == true)
-            {
-                _nowButton_btn.IsChecked = false;
-            }
-            else
-            {
-                _nowButton_btn.IsChecked = true;
-            }
-        }
-
-        /// <summary>
-        /// Description: Inicia el procedimiento
-        /// </summary>
-        private void _startButton_btn_Click(object sender, RoutedEventArgs e)
         {
             if (_textValue_tex.Text != "")
             {
@@ -155,7 +163,7 @@ namespace CaravanInstructor.Views.FailsProcedures
                 RadWindow.Alert(new DialogParameters
                 {
                     Header = "Alert",
-                    Content = "Complete all fields and press Start",
+                    Content = "Complete value field and press Programmed",
                     OkButtonContent = "Ok",
                     Owner = this
                 });

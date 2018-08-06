@@ -57,9 +57,7 @@
                                 <telerik:RadTreeView x:Name="_radTreeViewSystems_rtv" ItemsSource="{Binding SystemsCaravan}" ItemTemplate="{StaticResource SystemCaravan}" IsExpandOnSingleClickEnabled="True" SelectionChanged="_radTreeViewSystems_rtv_SelectionChanged"/>
                             </Border>
                             <Border  Grid.Column="1" BorderBrush="Black" BorderThickness="1">
-                                <ContentControl>
-                                    <UserControls:ListFailsProceduresType1 x:Name="_listProcedures_use" Margin="40,60,40,20">
-                                    </UserControls:ListFailsProceduresType1>
+                                <ContentControl x:Name="_listFailsProcedures_cco" Margin="40,60,40,40">
                                 </ContentControl>
                             </Border>
                         </Grid>
