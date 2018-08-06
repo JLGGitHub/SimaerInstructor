@@ -16,6 +16,7 @@ using CaravanInstructor.Class;
 using CaravanInstructor.Views.ScenarioUI;
 using CaravanInstructor.Views.FailsProcedures;
 using CaravanInstructor.Views.Select;
+using CaravanInstructor.Views.Setting;
 using Telerik.Windows.Controls;
 
 namespace CaravanInstructor
@@ -111,5 +112,14 @@ namespace CaravanInstructor
             }
         }
         #endregion
+
+        /// <summary>
+        /// Description: Destruye todas las instancias singleton al cerrar
+        /// </summary>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            FailsProcedures.GetInstance().Close();
+            Setting.GetInstance().Close();
+        }
     }
 }

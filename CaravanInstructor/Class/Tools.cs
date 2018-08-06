@@ -26,6 +26,25 @@ namespace CaravanInstructor.Class
         None
     }
 
+    public enum EnumSystemsType
+    {
+        FlightControls = 1,
+        Engine,
+        Fire,
+        Fuel,
+        Electrical,
+        Miscellaneus,
+        Avionics,
+        IceProtection
+    }
+
+    public enum EnumProceduresType
+    {
+        Abnormal = 1,
+        Emergency,
+        Failure
+    }
+
     class Tools
     {
         /// <summary>

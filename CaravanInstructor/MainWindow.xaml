@@ -4,7 +4,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:UserControls="clr-namespace:CaravanInstructor.Views.UserControls"
         Title="Módulo instructor SIMAER CARAVAN 208 - CODALTEC" Height="1080" Width="1920" WindowState="Maximized" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" BorderBrush="Black" BorderThickness="1">
+        WindowStyle="None" BorderBrush="Black" BorderThickness="1" Closing="Window_Closing">
     <Viewbox Stretch="Uniform">
         <Grid Height="1080" Width="1920">
             <Grid.Background>
