@@ -102,15 +102,7 @@ namespace CaravanInstructor.Views.FailsProcedures
         /// </summary>
         private void _textValue_tex_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
-            if (regex.IsMatch(e.Text) && !(e.Text == "." && ((TextBox)sender).Text.Contains(e.Text)))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            e.Handled = Tools.ValidateTextFloat(sender, e);
         }
 
         #region Evento botones

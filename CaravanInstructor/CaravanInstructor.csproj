@@ -176,6 +176,9 @@
     <Compile Include="Views\UserControls\ListFailsProceduresType2.xaml.cs">
       <DependentUpon>ListFailsProceduresType2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\ListFailsProceduresType3.xaml.cs">
+      <DependentUpon>ListFailsProceduresType3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
@@ -234,6 +237,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UserControls\ListFailsProceduresType3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\TopBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -277,7 +284,10 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\Images\cabin_wb.png" />
+    <Resource Include="Resources\Images\Images\cargopod_wb.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
