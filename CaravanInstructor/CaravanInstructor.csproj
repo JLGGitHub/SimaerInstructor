@@ -179,6 +179,9 @@
     <Compile Include="Views\UserControls\ListFailsProceduresType3.xaml.cs">
       <DependentUpon>ListFailsProceduresType3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\ListFailsProceduresType4.xaml.cs">
+      <DependentUpon>ListFailsProceduresType4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
@@ -238,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\ListFailsProceduresType3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ListFailsProceduresType4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

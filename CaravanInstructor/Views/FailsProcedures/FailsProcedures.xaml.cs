@@ -37,6 +37,7 @@ namespace CaravanInstructor.Views.FailsProcedures
         private ListFailsProceduresType1 _listFailsProceduresType1_use;
         private ListFailsProceduresType2 _listFailsProceduresType2_use;
         private ListFailsProceduresType3 _listFailsProceduresType3_use;
+        private ListFailsProceduresType4 _listFailsProceduresType4_use;
         #endregion
 
         #region Getters y setters
@@ -93,6 +94,7 @@ namespace CaravanInstructor.Views.FailsProcedures
             _listFailsProceduresType1_use = new ListFailsProceduresType1();
             _listFailsProceduresType2_use = new ListFailsProceduresType2();
             _listFailsProceduresType3_use = new ListFailsProceduresType3();
+            _listFailsProceduresType4_use = new ListFailsProceduresType4();
         }
 
         /// <summary>
@@ -185,8 +187,16 @@ namespace CaravanInstructor.Views.FailsProcedures
                         }
                         else
                         {
-                            _listFailsProcedures_cco.Content = _listFailsProceduresType1_use;
-                            _listFailsProceduresType1_use.UpdateData(item.Index, systemsCaravan);
+                            if ((systemsCaravan.System.system_id == (int)EnumSystemsType.Electrical) && (proceduresType.ProcedureType.procedure_type_id == (int)EnumProceduresType.Failure))
+                            {
+                                _listFailsProcedures_cco.Content = _listFailsProceduresType4_use;
+                                _listFailsProceduresType4_use.UpdateData(item.Index, systemsCaravan);
+                            }
+                            else
+                            {
+                                _listFailsProcedures_cco.Content = _listFailsProceduresType1_use;
+                                _listFailsProceduresType1_use.UpdateData(item.Index, systemsCaravan);
+                            }
                         }
                     }
                 }

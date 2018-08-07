@@ -17,7 +17,7 @@
             <telerik:RadListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox x:Name="_checkBoxItem_chb" Content="{Binding Procedure.name}" FontSize="30" FontFamily="Eurostile" Height="50" IsEnabled="{Binding IsEnabled}" IsChecked="{Binding IsChecked ,Mode=TwoWay}" Click="_checkBoxItem_chb_Click" Margin="0,0,20,0" MinWidth="300"/>
+                        <CheckBox x:Name="_checkBoxItem_chb" Content="{Binding Procedure.name}" FontSize="30" FontFamily="Eurostile" Height="50" IsEnabled="{Binding IsEnabled}" IsChecked="{Binding IsChecked ,Mode=TwoWay}" Click="_checkBoxItem_chb_Click" Margin="0,0,20,0" MinWidth="250"/>
                     </StackPanel>
                 </DataTemplate>
             </telerik:RadListBox.ItemTemplate>
