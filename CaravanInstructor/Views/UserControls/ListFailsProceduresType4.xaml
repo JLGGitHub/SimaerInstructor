@@ -1,0 +1,547 @@
+﻿<UserControl x:Class="CaravanInstructor.Views.UserControls.ListFailsProceduresType4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CaravanInstructor.Views.UserControls"
+             mc:Ignorable="d" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="680" d:DesignWidth="1230" BorderThickness="0">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Margin="0,10,0,0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Bus 1 PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="1" Text="STBY PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="2" Text="Left Pitot Heat" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="3" Text="Prop Anti Ice" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="4" Text="Pri Anti Ice" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="5" Text="Torque" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="6" Text="IGN" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="7" Text="Start Cont" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="8" Text="Gen Cont" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="9" Text="Gen Field" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <telerik:RadButton Grid.Column="0" Margin="5" Content="30" FontFamily="Eurostile" Tag="Bus 1 Pwr Row 1" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="1" Margin="5" Content="40" FontFamily="Eurostile" Tag="Stby Pwr Row 1" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="2" Margin="5" Content="15" FontFamily="Eurostile" Tag="Left Pitot Heat" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="3" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Pri Anti Ice" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="5" Margin="5" Content="5" FontFamily="Eurostile" Tag="Torque" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="6" Margin="5" Content="5" FontFamily="Eurostile" Tag="Ign" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="7" Margin="5" Content="5" FontFamily="Eurostile" Tag="Start Cont" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="8" Margin="5" Content="5" FontFamily="Eurostile" Tag="Gen Cont" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="9" Margin="5" Content="15" FontFamily="Eurostile" Tag="Gen Field" Click="RadButton_Click"/>
+            </Grid>
+            <Border Margin="0,10,0,0" Grid.Row="2" BorderThickness="1" BorderBrush="LightGray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Bus 2 PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="1" Text="STBY PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="2" Text="Right Pitot Heat" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="3" Text="Prop AntiIce Cont" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="4" Text="Backup Anti Ice" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="5" Text="W/S Anti Ice" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="6" Text="Aux 12VDC PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="7" Text="Left Fuel Qty" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="8" Text="Aux Fuel Pump" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="9" Text="Fuel Sel Warn" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <telerik:RadButton Grid.Column="0" Margin="5" Content="30" FontFamily="Eurostile" Tag="Bus 2 Pwr Row 2" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="1" Margin="5" Content="40" FontFamily="Eurostile" Tag="Stby Pwr Row 2" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="2" Margin="5" Content="15" FontFamily="Eurostile" Tag="Right Pitot Heat" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="3" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Backup Anti Ice" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="5" Margin="5" Content="2" FontFamily="Eurostile" Tag="Ws Anti Ice" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="6" Margin="5" Content="10" FontFamily="Eurostile" Tag="Aux 12v Dc Pwr" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="7" Margin="5" Content="5" FontFamily="Eurostile" Tag="Left Fuel Qty" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="8" Margin="5" Content="10" FontFamily="Eurostile" Tag="Aux Fuel Pump" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="9" Margin="5" Content="1/2" FontFamily="Eurostile" Tag="Fuel Sel Warn" Click="RadButton_Click"/>
+            </Grid>
+            <Border Margin="0,10,0,0" Grid.Row="4" BorderThickness="1" BorderBrush="LightGray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Bus 1 PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="1" Text="Rdng Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="2" Text="Inst Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="3" Text="Left LDG Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="4" Text="Strobe Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="5" Text="Beacon Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="6" Text="Wing Ice-Det Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="7" Text="Right Fuel Qty" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="8" Text="FFlow Ng Np" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="9" Text="Fuel Cont Heater" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <telerik:RadButton Grid.Column="0" Margin="5" Content="30" FontFamily="Eurostile" Tag="Bus 1 Pwr Row 3" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="1" Margin="5" Content="7 1/2" FontFamily="Eurostile" Tag="Rdng Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="2" Margin="5" Content="5" FontFamily="Eurostile" Tag="Inst Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="3" Margin="5" Content="10"  FontFamily="Eurostile" Tag="Left Ldg Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Strobe Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="5" Margin="5" Content="10" FontFamily="Eurostile" Tag="Beacon Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="6" Margin="5" Content="5" FontFamily="Eurostile" Tag="Wing Ice Det Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="7" Margin="5" Content="5" FontFamily="Eurostile" Tag="Right Fuel Qty" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="8" Margin="5" Content="2" FontFamily="Eurostile" Tag="Fflow Ng Np" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="9" Margin="5" Content="10" FontFamily="Eurostile" Tag="Fuel Cont Heater" Click="RadButton_Click"/>
+            </Grid>
+            <Border Margin="0,10,0,0" Grid.Row="6" BorderThickness="1" BorderBrush="LightGray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Bus 2 PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="1" Text="Seat Belt Sign" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="2" Text="Avn Flood Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="3" Text="Right LDG Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="4" Text="Taxi Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="5" Text="Nav Light" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="6" Text="Fire Det" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="7" Text="Prop O-Spd Test" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="8" Text="Air Cond Cont" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="9" Text="Deck Skin Fan" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <telerik:RadButton Grid.Column="0" Margin="5" Content="30" FontFamily="Eurostile" Tag="Bus 2 Pwr Row 4" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="1" Margin="5" Content="5" FontFamily="Eurostile" Tag="Seat Belt Sign" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="2" Margin="5" Content="5" FontFamily="Eurostile" Tag="Avn Flood Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="3" Margin="5" Content="10"  FontFamily="Eurostile" Tag="Right Ldg Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="4" Margin="5" Content="15" FontFamily="Eurostile" Tag="Taxi Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="5" Margin="5" Content="10" FontFamily="Eurostile" Tag="Nav Light" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="6" Margin="5" Content="5" FontFamily="Eurostile" Tag="Fire Det" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="7" Margin="5" Content="5" FontFamily="Eurostile" Tag="Prop O Spd Test" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="8" Margin="5" Content="5" FontFamily="Eurostile" Tag="Air Cond Cont" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="9" Margin="5" Content="5" FontFamily="Eurostile" Tag="Deck Skin Fan" Click="RadButton_Click"/>
+            </Grid>
+            <Border Margin="0,10,0,0" Grid.Row="8" BorderThickness="1" BorderBrush="LightGray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Bus 1 PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="1" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="2" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="3" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="4" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="5" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="6" Text="Flap Motor" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="7" Text="Air Speed Warn" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="8" Text="Aft Vent Blwr" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="9" Text="Left Vent Blwr" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <telerik:RadButton Grid.Column="0" Margin="5" Content="30" FontFamily="Eurostile" Tag="Bus 1 Pwr Row 5" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="1" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="2" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="3" Margin="5" Content="35"  FontFamily="Eurostile" Tag="O" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="4" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="5" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="6" Margin="5" Content="10" FontFamily="Eurostile" Tag="Flap Motor" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="7" Margin="5" Content="5" FontFamily="Eurostile" Tag="Air Speed Warn" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="8" Margin="5" Content="10" FontFamily="Eurostile" Tag="Aft Vent Blwr" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="9" Margin="5" Content="10" FontFamily="Eurostile" Tag="Left Vent Blwr" Click="RadButton_Click"/>
+            </Grid>
+            <Border Margin="0,10,0,0" Grid.Row="10" BorderThickness="1" BorderBrush="LightGray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Bus 2 PWR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="1" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="2" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="3" Text="VDU Pilot" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="4" Text="Flir" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="5" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="6" Text="STBY Flap Motor" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="7" Text="Stall Warn" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="8" Text="Bleed Air Heat" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                    <TextBlock Grid.Column="9" Text="Right Vent Blwr" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="11">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <telerik:RadButton Grid.Column="0" Margin="5" Content="30" FontFamily="Eurostile" Tag="Bus 2 Pwr Row 6" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="1" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="2" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="3" Margin="5" Content="2"  FontFamily="Eurostile" Tag="Vdu Pilot" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="4" Margin="5" Content="35" FontFamily="Eurostile" Tag="Flir" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="5" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                <telerik:RadButton Grid.Column="6" Margin="5" Content="10" FontFamily="Eurostile" Tag="Stby Flap Motor" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="7" Margin="5" Content="10" FontFamily="Eurostile" Tag="Stall Warn" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="8" Margin="5" Content="5" FontFamily="Eurostile" Tag="Bleed Air Heat" Click="RadButton_Click"/>
+                <telerik:RadButton Grid.Column="9" Margin="5" Content="10" FontFamily="Eurostile" Tag="Right Vent Blwr" Click="RadButton_Click"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <telerik:GroupBox Grid.Row="0" Header="AVN BUS 1" FontFamily="Eurostile" FontSize="15.5" BorderBrush="LightGray" BorderThickness="1" Foreground="Black">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Margin="0,10,0,0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="COM 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="1" Text="NAV 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="2" Text="ENG INTFC" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="3" Text="ADC 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="4" Text="AHRS 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="5" Text="PDF 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="6" Text="XPDR 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="7" Text="ADF 1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="8" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadButton Grid.Column="0" Margin="5" Content="7 1/2" FontFamily="Eurostile" Tag="Com 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="1" Margin="5" Content="5" FontFamily="Eurostile" Tag="Nav 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="2" Margin="5" Content="5" FontFamily="Eurostile" Tag="Eng Intfc" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="3" Margin="5" Content="5" FontFamily="Eurostile" Tag="Adc 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Ahrs 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="5" Margin="5" Content="5" FontFamily="Eurostile" Tag="Pfd 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="6" Margin="5" Content="5" FontFamily="Eurostile" Tag="Xpdr 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="7" Margin="5" Content="2" FontFamily="Eurostile" Tag="Adf 1" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="8" Margin="5" Content="1" FontFamily="Eurostile" Tag="O" Click="RadButton_Click"/>
+                    </Grid>
+                    <Border Margin="0,10,0,0" Grid.Row="2" BorderThickness="1" BorderBrush="LightGray">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="AUDIO" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="1" Text="A/P SERVOS" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="2" Text="A/P CONT" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="3" Text="ELT NAV INTFC" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="4" Text="RADIO ALT" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="5" Text="RADAR R/T" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="6" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="7" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="8" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadButton Grid.Column="0" Margin="5" Content="5" FontFamily="Eurostile" Tag="Audio" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="1" Margin="5" Content="5" FontFamily="Eurostile" Tag="Ap Servos" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="2" Margin="5" Content="5" FontFamily="Eurostile" Tag="Ap Cont" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="3" Margin="5" Content="5" FontFamily="Eurostile" Tag="Elt Nav Intfc" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Radio Alt" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="5" Margin="5" Content="5" FontFamily="Eurostile" Tag="Radar RT" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="6" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="7" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="8" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                    </Grid>
+                </Grid>
+            </telerik:GroupBox>
+            <telerik:GroupBox Grid.Row="2" Header="AVN BUS 2" FontFamily="Eurostile" FontSize="15.5" BorderBrush="LightGray" BorderThickness="1" Foreground="Black">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Margin="0,10,0,0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="COM 2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="1" Text="NAV 2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="2" Text="MFD" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="3" Text="ADC 2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="4" Text="AHRS 2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="5" Text="PDF 2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="6" Text="XPDR 2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="7" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="8" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadButton Grid.Column="0" Margin="5" Content="7 1/2" FontFamily="Eurostile" Tag="Com 2" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="1" Margin="5" Content="5" FontFamily="Eurostile" Tag="Nav 2" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="2" Margin="5" Content="5" FontFamily="Eurostile" Tag="Mfd" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="3" Margin="5" Content="5" FontFamily="Eurostile" Tag="Adc 2" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Ahrs 2" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="5" Margin="5" Content="5" FontFamily="Eurostile" Tag="Pfd 2" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="6" Margin="5" Content="5" FontFamily="Eurostile" Tag="Xpdr 2" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="7" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="8" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                    </Grid>
+                    <Border Margin="0,10,0,0" Grid.Row="2" BorderThickness="1" BorderBrush="LightGray">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="DME" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="1" Text="TAS" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="2" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="3" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="4" Text="HF RCVR" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="5" Text="HF AMP" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="6" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="7" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                            <TextBlock Grid.Column="8" Text="" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Eurostile" FontSize="15.5" Margin="5,8,5,0"/>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadButton Grid.Column="0" Margin="5" Content="5" FontFamily="Eurostile" Tag="Dme" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="1" Margin="5" Content="5" FontFamily="Eurostile" Tag="Tas" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="2" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="3" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="4" Margin="5" Content="5" FontFamily="Eurostile" Tag="Hf Rcvr" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="5" Margin="5" Content="30" FontFamily="Eurostile" Tag="Hf Amp" Click="RadButton_Click"/>
+                        <telerik:RadButton Grid.Column="6" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="7" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                        <telerik:RadButton Grid.Column="8" Margin="5" IsEnabled="False" FontFamily="Eurostile"/>
+                    </Grid>
+                </Grid>
+            </telerik:GroupBox>
+            <Grid Grid.Row="3">
+                <telerik:RadButton x:Name="_clearAllButton_btn" Content="Clear All" FontFamily="Eurostile" FontSize="20" Height="40" Width="100" HorizontalAlignment="Right" Margin="10" Click="_clearAllButton_btn_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

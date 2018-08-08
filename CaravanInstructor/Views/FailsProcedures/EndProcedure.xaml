@@ -1,0 +1,55 @@
+﻿<Window x:Class="CaravanInstructor.Views.FailsProcedures.EndProcedure"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaravanInstructor.Views.FailsProcedures"
+        mc:Ignorable="d"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="End" Height="600" Width="800" WindowStyle="None" BorderBrush="Black" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Viewbox Stretch="Uniform">
+        <Grid Height="600" Width="800">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+
+                <Border x:Name="_borderTitle_bor" BorderThickness="1" BorderBrush="Black" Grid.Row="0" MouseDown="_borderTitle_bor_MouseDown">
+                    <DockPanel x:Name="RootWindow">
+                        <DockPanel x:Name="TitleBar" DockPanel.Dock="Top">
+                            <TextBlock x:Name="_title_txt" Text="End Procedure" Width="780" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Eurostila" FontSize="30" Margin="10,0,0,0" />
+                        </DockPanel>
+                    </DockPanel>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Margin="20" Background="White" BorderBrush="Black" BorderThickness="1">
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                <TextBlock x:Name="_textEvaluated_txt" FontFamily="Eurostile" FontSize="25" Text="1. First Procedure - Approved Text text text text text text" TextWrapping="Wrap"/>
+                            </ScrollViewer>
+                        </Border>
+                        <Grid Grid.Row="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <GroupBox Grid.Column="0" Margin="20,0,20,20" Header="Comments" FontFamily="Eurostile" FontSize="25" BorderBrush="Black" BorderThickness="1">
+                                    <telerik:RadWatermarkTextBox x:Name="_textComment_tex" Foreground="LightGray" BorderBrush="Black" BorderThickness="1" WatermarkContent="Text field to enter comments of the Instructor" FontStyle="Normal" FontFamily="Eurostile" FontSize="25" TextChanged="_textComment_tex_TextChanged" VerticalContentAlignment="Top" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                                </GroupBox>
+                                <telerik:RadButton x:Name="_saveButton_btn" Grid.Column="1" Content="Save" Height="40" Margin="20" FontFamily="Eurostile" FontSize="25" Click="_saveButton_btn_Click"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>

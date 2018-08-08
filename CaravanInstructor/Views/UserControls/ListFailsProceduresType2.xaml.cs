@@ -103,15 +103,7 @@ namespace CaravanInstructor.Views.UserControls
         /// </summary>
         private void _textValue_tex_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
-            if (regex.IsMatch(e.Text) && !(e.Text == "." && ((TextBox)sender).Text.Contains(e.Text)))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            e.Handled = Tools.ValidateTextFloat(sender, e);
         }
         
         /// <summary>
@@ -145,7 +137,7 @@ namespace CaravanInstructor.Views.UserControls
 
                             if (_leftCheckbox_che.IsChecked == true)
                             {
-                                procedures.IsEnabled = true;
+                                procedures.IsChecked = true;
                                 procedures.Value = _textValue_tex.Text;
 
                                 //Logic send procedure Left
@@ -154,7 +146,7 @@ namespace CaravanInstructor.Views.UserControls
                             {
                                 if (_rightCheckbox_che.IsChecked == true)
                                 {
-                                    procedures.IsEnabled = true;
+                                    procedures.IsChecked = true;
                                     procedures.Value = _textValue_tex.Text;
 
                                     //Logic send procedure Right
@@ -163,7 +155,7 @@ namespace CaravanInstructor.Views.UserControls
                                 {
                                     if (_bothCheckbox_che.IsChecked == true)
                                     {
-                                        procedures.IsEnabled = true;
+                                        procedures.IsChecked = true;
                                         procedures.Value = _textValue_tex.Text;
 
                                         //Logic send procedure Both
@@ -226,7 +218,7 @@ namespace CaravanInstructor.Views.UserControls
         private void _comboParameter_com_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Procedures procedures = SelectFailsProcedures.Where<Procedures>(wprocedure => wprocedure.Procedure.name == "Fuel leak").First();
-            procedures.IsEnabled = true;
+            procedures.IsChecked = true;
             procedure procedure = procedures.Procedure;
 
             //Logic send procedure

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace CaravanInstructor.Class
 {
@@ -75,6 +78,19 @@ namespace CaravanInstructor.Class
             string imagesFolder = Properties.Settings.Default.ImagesFolder;
 
             return System.IO.Path.GetFullPath(imagesFolder);
+        }
+
+        public static bool ValidateTextFloat(object sender, TextCompositionEventArgs e)
+        {
+            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+            if (regex.IsMatch(e.Text) && !(e.Text == "." && ((TextBox)sender).Text.Contains(e.Text)))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

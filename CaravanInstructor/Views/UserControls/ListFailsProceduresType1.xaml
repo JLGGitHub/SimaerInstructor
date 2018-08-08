@@ -8,11 +8,16 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              d:DesignHeight="450" d:DesignWidth="800" BorderThickness="0">
     <Grid>
-        <telerik:RadListBox x:Name="_failProcedures_lis" ItemsSource="{Binding SelectFailsProcedures}" SelectionMode="Single" BorderThickness="0" Background="{x:Null}">
+        <telerik:RadListBox x:Name="_failProcedures_lis" ItemsSource="{Binding SelectFailsProcedures}" SelectionMode="Single" BorderThickness="0" Background="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+            <telerik:RadListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </telerik:RadListBox.ItemsPanel>
             <telerik:RadListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox x:Name="_checkBoxItem_chb" Content="{Binding Procedure.name}" FontSize="30" FontFamily="Eurostile" Width="1200" Height="50" IsEnabled="{Binding IsEnabled}" IsChecked="{Binding IsChecked ,Mode=TwoWay}" Click="_checkBoxItem_chb_Click"/>
+                        <CheckBox x:Name="_checkBoxItem_chb" Content="{Binding Procedure.name}" FontSize="30" FontFamily="Eurostile" Height="50" IsEnabled="{Binding IsEnabled}" IsChecked="{Binding IsChecked ,Mode=TwoWay}" Click="_checkBoxItem_chb_Click" Margin="0,0,20,0" MinWidth="250"/>
                     </StackPanel>
                 </DataTemplate>
             </telerik:RadListBox.ItemTemplate>
