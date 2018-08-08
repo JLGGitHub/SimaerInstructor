@@ -146,6 +146,9 @@
     <Compile Include="Views\FailsProcedures\ActivateProcedure.xaml.cs">
       <DependentUpon>ActivateProcedure.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FailsProcedures\EndProcedure.xaml.cs">
+      <DependentUpon>EndProcedure.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ScenarioUI\ScenarioUI.xaml.cs">
       <DependentUpon>ScenarioUI.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\FailsProcedures\ActivateProcedure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FailsProcedures\EndProcedure.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -98,7 +98,6 @@ namespace CaravanInstructor.Views.UserControls
                 {
                     DisableProcedures();
                 }
-
                 else
                 {
                     procedure.IsChecked = false;
@@ -109,7 +108,15 @@ namespace CaravanInstructor.Views.UserControls
         }
 
         /// <summary>
-        /// Description: Valida la confirmación de finalizar el procedimiento
+        /// Description: Guarda el comentario del procedimiento finalizado
+        /// </summary>
+        public void ConfirmEndProcedure(string i_text)
+        {
+            //Logic save comment
+        }
+
+        /// <summary>
+        /// Description: Valida la confirmación para abrir el cuadro de finalización del 
         /// </summary>
         private void OnConfirmEndProcedure(object sender, WindowClosedEventArgs e)
         {
@@ -120,12 +127,20 @@ namespace CaravanInstructor.Views.UserControls
                 if (procedure != null)
                 {
                     procedure.IsChecked = false;
-
-                    //Método End Procedure
+                    
+                    //Método End Procedure //Save evaluated
                     EnableProcedures();
+
+                    if (procedure.Procedure.procedure_type_id != (int) EnumProceduresType.Failure)
+                    {
+                        EndProcedure endProcedure = new EndProcedure(this);
+                        endProcedure.ParentType_wty = UserControlsType.ListFailsProceduresType1;
+                        endProcedure.ShowDialog();
+                    }
                 }
             }
         }
+
 
         /// <summary>
         /// Description: Habilita todos los checkbox
