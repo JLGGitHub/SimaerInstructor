@@ -41,6 +41,9 @@
     <Reference Include="EntityFramework6.Npgsql, Version=3.2.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework6.Npgsql.3.2.0\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=4.0.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.0.2\lib\net451\Npgsql.dll</HintPath>
     </Reference>
@@ -120,6 +123,13 @@
     <Compile Include="Dao\IReportDao.cs" />
     <Compile Include="Dao\IScenarioDao.cs" />
     <Compile Include="Dao\ISystemDao.cs" />
+    <Compile Include="Evaluation\Compare.cs" />
+    <Compile Include="Evaluation\Deserialize.cs" />
+    <Compile Include="Evaluation\IDeserialize.cs" />
+    <Compile Include="Evaluation\ManagerEvaluation.cs" />
+    <Compile Include="Evaluation\prueba1.cs" />
+    <Compile Include="Evaluation\Report.cs" />
+    <Compile Include="Evaluation\StructAttribute.cs" />
     <Compile Include="Model\action.cs" />
     <Compile Include="Model\attribute.cs" />
     <Compile Include="Model\data_type.cs" />
@@ -134,6 +144,7 @@
     <Compile Include="Model\scenario.cs" />
     <Compile Include="Model\system.cs" />
     <Compile Include="Model\time_day.cs" />
+    <Compile Include="Evaluation\StructProcedure.cs" />
     <Compile Include="Logic\ActionLogic.cs" />
     <Compile Include="Logic\AttributeLogic.cs" />
     <Compile Include="Logic\ExerciseLogic.cs" />
@@ -278,6 +289,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Evaluation\Attributes.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

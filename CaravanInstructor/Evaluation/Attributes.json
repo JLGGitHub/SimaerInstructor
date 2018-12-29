@@ -1,0 +1,218 @@
+[
+  {
+    "nameAttribute": "ATT_CARAVAN_GARMINFLIGHT_AIRSPEED",
+    "idAttibute": 1,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FLIGHT_CONTR_FLAPS",
+    "idAttibute": 2,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_MISCELLANEOU_NO_SMOKE_LIGHT",
+    "idAttibute": 3,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_STBY_FLAP_MOTOR",
+    "idAttibute": 4,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_FLAP_MOTOR",
+    "idAttibute": 5,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FLIGHT_CONTR_FLAPS_SWITCH_STATUS",
+    "idAttibute": 6,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ENGINE_POWER_LEVER_ISD",
+    "idAttibute": 7,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ENGINE_RPM_PROPELLER_LEVER",
+    "idAttibute": 8,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_AFCS_YOKE_LEFT_AP_TRIM_DISC",
+    "idAttibute": 9,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FUEL_CONDITION",
+    "idAttibute": 10,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FUEL_PULL_OFF",
+    "idAttibute": 11,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_SWITCHES_STBY_ALT_PWR",
+    "idAttibute": 12,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_SWITCHES_GENERATOR",
+    "idAttibute": 13,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_SWITCHES_BATTERY",
+    "idAttibute": 14,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_LDGL_STATE",
+    "idAttibute": 15,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_TAXI_STATE",
+    "idAttibute": 16,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_LDGR_STATE",
+    "idAttibute": 17,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_STROBE_STATE",
+    "idAttibute": 18,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_NAV_STATE",
+    "idAttibute": 19,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_BCN_STATE",
+    "idAttibute": 20,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_LIGHTS_COURTESY_STATE",
+    "idAttibute": 21,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_TKS_P_S_HEAT_LOW_A_S_AWARE_STATE",
+    "idAttibute": 22,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_TKS_STALL_HEAT_STATE",
+    "idAttibute": 23,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FLIGHT_CONTR_BRAKE_L_R",
+    "idAttibute": 24,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ENGINE_STARTER",
+    "idAttibute": 25,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FUEL_BOOST",
+    "idAttibute": 26,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_FUEL_SELECT_TANK_LEFT_R_L",
+    "idAttibute": 27,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ENGINE_IGNITION",
+    "idAttibute": 28,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ENGINE_EMERG_PWR_LEVER",
+    "idAttibute": 29,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_START_CONT",
+    "idAttibute": 30,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_SWITCHES_EXTERNAL_POWER",
+    "idAttibute": 31,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ELECTRICAL_LOAD",
+    "idAttibute": 32,
+    "typeVariable": 3
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_SWITCHES_AVIONICS_BUS_TIE",
+    "idAttibute": 33,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_SWITCHES_AVIONICS_STANDBY_POWER",
+    "idAttibute": 34,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_TKS_PRIMARY_STATE",
+    "idAttibute": 35,
+    "typeVariable": 2
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_LEFT_PITOT_HEAT",
+    "idAttibute": 36,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_RIGHT_PITOT_HEAT",
+    "idAttibute": 37,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_MISCELLANEOU_ALT_STATIC_AIR",
+    "idAttibute": 38,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_STALL_WARN",
+    "idAttibute": 39,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_ENGINE_INERTIAL_SEPARATOR",
+    "idAttibute": 40,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_TKS_BACKUP_STATE",
+    "idAttibute": 41,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_GENERAL_CB_PRI_ANTI_ICE",
+    "idAttibute": 42,
+    "typeVariable": 1
+  },
+  {
+    "nameAttribute": "ATT_CARAVAN_TKS_FLUID_CONTROL_MAX_FLOW_STATE",
+    "idAttibute": 43,
+    "typeVariable": 2
+  }
+
+]

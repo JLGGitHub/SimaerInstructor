@@ -7,6 +7,10 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
 using CaravanInstructor.Views.Splash;
+using CaravanInstructor.Evaluation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace CaravanInstructor
 {
@@ -38,6 +42,15 @@ namespace CaravanInstructor
             timer.Interval = TimeSpan.FromSeconds(CaravanInstructor.Properties.Settings.Default.TimerSplash);
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
+
+            /**
+             *  PRUEBAS 
+             *  LEONARDO
+             * */
+             
+
+            new ManagerEvaluation().startProcedure("Upper Half of Cargo Door or Upper Half of Passenger Airstair Door Open"); 
+
         }
 
         /// <summary>
